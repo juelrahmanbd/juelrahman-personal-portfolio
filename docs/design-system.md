@@ -48,8 +48,8 @@ The color system is defined via CSS variables in `src/app/globals.css` and exten
 
 | Hierarchy | Fluid Size (`clamp`) | Line Height | Tracking | Weight | Class Utility |
 |---|---|---|---|---|---|
-| **Display Large** | `clamp(2.75rem, 6vw, 4.5rem)` (44px–72px) | 1.05 | -0.03em | Bold (700) | `.text-display-large` |
-| **Display Small** | `clamp(2.25rem, 4.5vw, 3.5rem)` (36px–56px) | 1.10 | -0.025em | Bold (700) | `.text-display-small` |
+| **Display Large** | `clamp(1.875rem, 5vw, 4.25rem)` (30px–68px) | 1.10 | -0.03em | Bold (700) | `.text-display-large` |
+| **Display Small** | `clamp(1.75rem, 4vw, 3.25rem)` (28px–52px) | 1.12 | -0.025em | Bold (700) | `.text-display-small` |
 | **Heading 1 (H1)** | `clamp(2.00rem, 3.5vw, 2.75rem)` (32px–44px) | 1.15 | -0.02em | Bold (700) | `.text-heading-1` |
 | **Heading 2 (H2)** | `clamp(1.50rem, 2.5vw, 2.00rem)` (24px–32px) | 1.25 | -0.015em | Semibold (600) | `.text-heading-2` |
 | **Heading 3 (H3)** | `clamp(1.25rem, 1.8vw, 1.50rem)` (20px–24px) | 1.35 | -0.01em | Semibold (600) | `.text-heading-3` |
@@ -137,3 +137,21 @@ The color system is defined via CSS variables in `src/app/globals.css` and exten
 
 - **Supabase Compatibility:** Component props and interfaces are strictly typed with standard TypeScript interfaces. Data schemas and authentication guards can be seamlessly introduced in subsequent phases without refactoring foundational UI primitives.
 - **Deployment Platform:** Optimized for Hostinger automatic deployment from GitHub `main` branch.
+
+---
+
+## 8. Navigation & Hero Viewport Architecture (Phase 02A)
+
+### 8.1 Navbar Specification (`src/components/layout/Navbar.tsx`)
+- **Wordmark & Emblem:** Geometric 45-degree diamond with primary soft-pink core dot + `JUEL.` wordmark.
+- **Center Capsule:** Floating translucent surface pill with backdrop blur (`backdrop-blur-md bg-surface/70 border border-border-subtle`).
+- **Active Section Tracking:** `IntersectionObserver` observing sections (`#home`, `#about`, `#expertise`, `#projects`, `#testimonials`, `#contact`). Active links receive elevated pill styling and a soft-pink micro-dot.
+- **Scroll Behavior:** Smoothly transitions from transparent to solid translucent plum backdrop (`bg-bg-primary/85 shadow-card`) when scrolling past 24px.
+- **Mobile Drawer:** Full-screen translucent plum overlay with lock body scroll, `Escape` key close listener, animated hamburger icon (`Menu` / `X`), section selection auto-dismiss, and prominent contact CTA.
+
+### 8.2 Hero Section Specification (`src/components/sections/Hero.tsx`)
+- **Content Hierarchy:** Semantic `<h1>` headline: `"Building intelligent digital experiences."` with `"intelligent digital experiences."` styled in soft pink accent `#F6D1DD`.
+- **Supporting Narrative:** 2-column editorial layout keeping text width contained (`max-w-2xl`).
+- **Identity Panel:** Custom architectural identity card highlighting 4 core engineering capabilities (Full-Stack Next.js, Enterprise WordPress, AI Integrations, Cloud APIs) alongside technical validation metrics (Next.js 15, React 19, WCAG AAA).
+- **Responsive Layout:** 100% fluid down to 320px with zero horizontal scrollbar or overflow.
+
