@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Surface and Background Tokens */
+  --bg-primary: #190C2B;
+  --bg-secondary: #231136;
+  --surface-default: #321B49;
+  --surface-elevated: #3F225C;
+  --surface-light: #FFF8FB;
+
+  /* Accent Tokens */
+  --accent-primary: #F6D1DD;
+  --accent-secondary: #E8AFC5;
+  --accent-hover: #FDE8EE;
+
+  /* Typography / Text Tokens */
+  --text-primary: #FFFFFF;
+  --text-muted: #C8B9D2;
+  --text-subtle: #9681A6;
+  --text-dark: #25152D;
+
+  /* Border Tokens */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-accent: rgba(246, 209, 221, 0.28);
+}
+
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* High contrast text selection */
+  ::selection {
+    background-color: var(--accent-primary);
+    color: var(--text-dark);
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Fluid typography utilities */
+  .text-display-large {
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  .text-display-small {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+
+  .text-heading-1 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .text-heading-2 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  .text-heading-3 {
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  .text-heading-4 {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    font-weight: 600;
+  }
+
+  .text-body-large {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .text-body-regular {
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  .text-body-small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .text-caption {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* Subtle glassmorphic card backdrop */
+  .surface-card {
+    background-color: var(--surface-default);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px -4px rgba(10, 4, 18, 0.5);
+  }
+
+  .surface-elevated {
+    background-color: var(--surface-elevated);
+    border: 1px solid var(--border-strong);
+    border-radius: 1rem;
+    box-shadow: 0 16px 48px -8px rgba(10, 4, 18, 0.6);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
