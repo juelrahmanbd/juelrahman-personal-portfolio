@@ -17,27 +17,41 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#190C2B",
+  themeColor: "#6847E8",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
-  title: "Md Juel Rahman — AI-Focused Full-Stack Web Developer",
+  title: "Md. Juel Rahman | AI Engineer & Full-Stack Developer",
   description:
-    "Personal portfolio and design system foundation for Md Juel Rahman. Full-Stack Web Development, WordPress & Custom Engineering, AI-Powered Solutions, and Scalable Digital Architectures.",
-  authors: [{ name: "Md Juel Rahman", url: "https://github.com/juelrahmanbd" }],
-  creator: "Md Juel Rahman",
+    "Explore the portfolio of Md. Juel Rahman, an AI-focused Full-Stack Developer specializing in modern websites, custom web applications, WordPress, SaaS, and AI-powered digital solutions.",
+  authors: [{ name: "Md. Juel Rahman", url: "https://github.com/juelrahmanbd" }],
+  creator: "Md. Juel Rahman",
   keywords: [
-    "Md Juel Rahman",
-    "Full-Stack Web Developer",
-    "AI Solutions",
-    "Next.js",
-    "React",
-    "WordPress Custom Development",
-    "SaaS Architecture",
+    "Md. Juel Rahman",
+    "AI Engineer",
+    "Full-Stack Developer",
+    "WordPress Expert",
+    "Custom Web Applications",
+    "SaaS Development",
+    "Next.js Developer",
+    "AI Integration",
     "Bangladesh",
   ],
+  openGraph: {
+    title: "Md. Juel Rahman | AI Engineer & Full-Stack Developer",
+    description:
+      "Explore the portfolio of Md. Juel Rahman, specializing in modern websites, custom web applications, WordPress, SaaS, and AI-powered solutions.",
+    url: "https://juelrahman.me",
+    siteName: "Md. Juel Rahman Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -47,7 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
-      <body className="bg-bg-primary text-palette-text-primary antialiased selection:bg-accent-primary selection:text-palette-text-dark min-h-screen">
+      <body className="bg-[#FAFAFF] text-[#11152F] antialiased min-h-screen selection:bg-[#E0D8FF] selection:text-[#11152F]">
         {children}
       </body>
     </html>

@@ -3,38 +3,38 @@
 @tailwind utilities;
 
 :root {
-  /* Surface and Background Tokens */
-  --bg-primary: #190C2B;
-  --bg-secondary: #231136;
-  --surface-default: #321B49;
-  --surface-elevated: #3F225C;
-  --surface-light: #FFF8FB;
+  /* Light Modern SaaS Theme Tokens */
+  --bg-primary: #FAFAFF;
+  --bg-secondary: #F1EDFF;
+  --bg-surface: #FFFFFF;
+  --surface-default: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-lavender: #F1EDFF;
 
   /* Accent Tokens */
-  --accent-primary: #F6D1DD;
-  --accent-secondary: #E8AFC5;
-  --accent-hover: #FDE8EE;
+  --accent-purple: #6847E8;
+  --accent-deep: #5234CC;
+  --accent-green: #28B77A;
+  --accent-lavender: #F1EDFF;
 
   /* Typography / Text Tokens */
-  --text-primary: #FFFFFF;
-  --text-muted: #C8B9D2;
-  --text-subtle: #9681A6;
-  --text-dark: #25152D;
+  --text-navy: #11152F;
+  --text-secondary: #626780;
+  --text-muted: #8E93AB;
 
   /* Border Tokens */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --border-accent: rgba(246, 209, 221, 0.28);
+  --border-color: #E9E7F5;
+  --border-hover: #D4CFF2;
 }
 
 @layer base {
   * {
-    border-color: var(--border-subtle);
+    border-color: var(--border-color);
   }
 
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -44,109 +44,77 @@
 
   body {
     background-color: var(--bg-primary);
-    color: var(--text-primary);
+    color: var(--text-navy);
     font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
     max-width: 100vw;
   }
 
-  /* High contrast text selection */
+  /* Selection highlight */
   ::selection {
-    background-color: var(--accent-primary);
-    color: var(--text-dark);
+    background-color: #E0D8FF;
+    color: #11152F;
   }
 
   /* Accessible focus indicators */
   :focus-visible {
-    outline: 2px solid var(--accent-primary);
+    outline: 2px solid var(--accent-purple);
     outline-offset: 2px;
   }
 }
 
 @layer utilities {
-  /* Fluid typography utilities */
-  .text-display-large {
-    font-size: clamp(1.875rem, 5vw, 4.25rem);
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    font-weight: 700;
+  .text-display-hero {
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    font-weight: 800;
   }
 
-  .text-display-small {
-    font-size: clamp(1.75rem, 4vw, 3.25rem);
-    line-height: 1.12;
+  .text-heading-1 {
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    line-height: 1.18;
     letter-spacing: -0.025em;
     font-weight: 700;
   }
 
-  .text-heading-1 {
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
-    line-height: 1.15;
+  .text-heading-2 {
+    font-size: clamp(1.35rem, 2.5vw, 1.875rem);
+    line-height: 1.25;
     letter-spacing: -0.02em;
     font-weight: 700;
   }
 
-  .text-heading-2 {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    line-height: 1.25;
+  .text-heading-3 {
+    font-size: clamp(1.125rem, 1.8vw, 1.35rem);
+    line-height: 1.35;
     letter-spacing: -0.015em;
     font-weight: 600;
   }
 
-  .text-heading-3 {
-    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    font-weight: 600;
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
   }
 
-  .text-heading-4 {
-    font-size: 1.125rem;
-    line-height: 1.4;
-    letter-spacing: -0.005em;
-    font-weight: 600;
+  .glass-header {
+    background: rgba(250, 250, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-color);
   }
 
-  .text-body-large {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    font-weight: 400;
+  .gradient-text-purple {
+    background: linear-gradient(135deg, #6847E8 0%, #5234CC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .text-body-regular {
-    font-size: 1rem;
-    line-height: 1.65;
-    font-weight: 400;
-  }
-
-  .text-body-small {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    font-weight: 400;
-  }
-
-  .text-caption {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  /* Subtle glassmorphic card backdrop */
-  .surface-card {
-    background-color: var(--surface-default);
-    border: 1px solid var(--border-subtle);
-    border-radius: 1rem;
-    box-shadow: 0 8px 32px -4px rgba(10, 4, 18, 0.5);
-  }
-
-  .surface-elevated {
-    background-color: var(--surface-elevated);
-    border: 1px solid var(--border-strong);
-    border-radius: 1rem;
-    box-shadow: 0 16px 48px -8px rgba(10, 4, 18, 0.6);
+  .gradient-bg-purple {
+    background: linear-gradient(135deg, #6847E8 0%, #5234CC 100%);
   }
 }
 
