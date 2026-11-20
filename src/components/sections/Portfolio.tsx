@@ -110,18 +110,18 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="py-20 md:py-28 bg-[#FAFAFF] relative">
+    <section id="portfolio" className="py-20 md:py-28 bg-[#F5F8FB] border-b border-[rgba(16,24,32,0.1)] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F1EDFF] border border-[#E9E7F5] text-xs font-semibold text-[#6847E8] mb-4">
-            <Folder className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(16,24,32,0.14)] text-xs font-semibold text-[#004275] shadow-xs mb-4">
+            <Folder className="w-3.5 h-3.5 text-[#004275]" />
             <span>Featured Portfolio</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#11152F] tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#101820] tracking-tight mb-3">
             Selected Work (Showcase)
           </h2>
-          <p className="text-sm sm:text-base text-[#626780] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#101820]/75 leading-relaxed">
             A few sample project types to showcase the range of solutions I can build for you.
           </p>
         </div>

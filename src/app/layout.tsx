@@ -17,32 +17,33 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#6847E8",
+  themeColor: "#004275",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
-  title: "Md. Juel Rahman | AI Engineer & Full-Stack Developer",
+  title: "Md. Juel Rahman | Full-Stack Web Developer | AI Engineer",
   description:
-    "Explore the portfolio of Md. Juel Rahman, an AI-focused Full-Stack Developer specializing in modern websites, custom web applications, WordPress, SaaS, and AI-powered digital solutions.",
+    "Explore the portfolio of Md. Juel Rahman, a Full-Stack Web Developer & AI Engineer specializing in high-performance websites, custom web applications, WordPress, Divi 5, SaaS, and AI automation.",
   authors: [{ name: "Md. Juel Rahman", url: "https://github.com/juelrahmanbd" }],
   creator: "Md. Juel Rahman",
   keywords: [
     "Md. Juel Rahman",
+    "Full-Stack Web Developer",
     "AI Engineer",
-    "Full-Stack Developer",
     "WordPress Expert",
+    "Divi 5",
     "Custom Web Applications",
     "SaaS Development",
     "Next.js Developer",
-    "AI Integration",
+    "AI Automation",
     "Bangladesh",
   ],
   openGraph: {
-    title: "Md. Juel Rahman | AI Engineer & Full-Stack Developer",
+    title: "Md. Juel Rahman | Full-Stack Web Developer | AI Engineer",
     description:
-      "Explore the portfolio of Md. Juel Rahman, specializing in modern websites, custom web applications, WordPress, SaaS, and AI-powered solutions.",
+      "Explore the portfolio of Md. Juel Rahman, specializing in high-performance websites, custom web applications, WordPress, SaaS, and AI-powered solutions.",
     url: "https://juelrahman.me",
     siteName: "Md. Juel Rahman Portfolio",
     locale: "en_US",
@@ -61,7 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
-      <body className="bg-[#FAFAFF] text-[#11152F] antialiased min-h-screen selection:bg-[#E0D8FF] selection:text-[#11152F]">
+      <body className="bg-[#F5F8FB] text-[#101820] antialiased min-h-screen selection:bg-[#004275]/15 selection:text-[#101820]">
         {children}
       </body>
     </html>

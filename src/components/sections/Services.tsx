@@ -47,18 +47,18 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-[#FAFAFF] relative">
+    <section id="services" className="py-20 md:py-28 bg-[#F5F8FB] border-b border-[rgba(16,24,32,0.1)] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F1EDFF] border border-[#E9E7F5] text-xs font-semibold text-[#6847E8] mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(16,24,32,0.14)] text-xs font-semibold text-[#004275] shadow-xs mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-[#004275]" />
             <span>My Services</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#11152F] tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#101820] tracking-tight mb-3">
             Digital Solutions I Offer
           </h2>
-          <p className="text-sm sm:text-base text-[#626780] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#101820]/75 leading-relaxed">
             A complete range of development and digital services to build, improve, and scale your online presence.
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function Services() {
           {servicesList.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-3xl p-5 sm:p-5.5 border border-[#E9E7F5] shadow-xs hover:shadow-card hover:border-[#D4CFF2] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
+              className="bg-white rounded-3xl p-5 sm:p-5.5 border border-[rgba(16,24,32,0.14)] shadow-xs hover:border-[#004275]/40 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
             >
               <div>
                 {/* Icon Container with Distinct Theme Gradient */}
@@ -79,12 +79,12 @@ export default function Services() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-sm sm:text-base font-bold text-[#11152F] mb-2 tracking-tight group-hover:text-[#6847E8] transition-colors leading-snug">
+                <h3 className="text-sm sm:text-base font-bold text-[#101820] mb-2 tracking-tight group-hover:text-[#004275] transition-colors leading-snug">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs text-[#626780] leading-relaxed">
+                <p className="text-xs text-[#101820]/70 leading-relaxed">
                   {service.description}
                 </p>
               </div>

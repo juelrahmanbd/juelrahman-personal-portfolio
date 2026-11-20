@@ -17,26 +17,26 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#11152F] text-white pt-16 pb-12 border-t border-[#1D234A] relative">
+    <footer className="bg-[#101820] text-white pt-16 pb-12 border-t border-[rgba(255,255,255,0.08)] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#232A57]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[rgba(255,255,255,0.1)]">
           {/* Brand Info (Cols 1-5) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#6847E8] to-[#5234CC] flex items-center justify-center text-white font-extrabold text-sm shadow-sm">
+              <div className="w-9 h-9 rounded-xl bg-[#004275] flex items-center justify-center text-white font-extrabold text-sm shadow-xs">
                 {siteConfig.initials}
               </div>
               <div>
                 <div className="font-bold text-white text-base tracking-tight">
                   {siteConfig.name}
                 </div>
-                <div className="text-xs text-[#8E93AB] font-medium">
+                <div className="text-xs text-white/70 font-medium">
                   {siteConfig.role}
                 </div>
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#8E93AB] max-w-sm leading-relaxed">
+            <p className="text-xs sm:text-sm text-white/70 max-w-sm leading-relaxed">
               I build modern websites, web applications, and AI-powered digital solutions with a focus on quality, security, performance, and real business value.
             </p>
           </div>

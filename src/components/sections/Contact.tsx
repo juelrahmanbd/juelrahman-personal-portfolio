@@ -61,18 +61,18 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#FAFAFF] relative">
+    <section id="contact" className="py-20 md:py-28 bg-[#F5F8FB] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F1EDFF] border border-[#E9E7F5] text-xs font-semibold text-[#6847E8] mb-4">
-            <Mail className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(16,24,32,0.14)] text-xs font-semibold text-[#004275] shadow-xs mb-4">
+            <Mail className="w-3.5 h-3.5 text-[#004275]" />
             <span>Get in Touch</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#11152F] tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#101820] tracking-tight mb-3">
             Let&apos;s Work Together
           </h2>
-          <p className="text-sm sm:text-base text-[#626780] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#101820]/75 leading-relaxed">
             Have a project, idea, or requirement? Feel free to reach out — I&apos;d be happy to discuss how I can help.
           </p>
         </div>
@@ -275,7 +275,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#6847E8] to-[#5234CC] hover:from-[#5b3adb] hover:to-[#4528b8] shadow-md hover:shadow-card-hover transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6847E8] focus-visible:ring-offset-2"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white bg-[#004275] hover:bg-[#003157] shadow-xs hover:shadow transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004275] focus-visible:ring-offset-2"
               >
                 <Send className="w-4 h-4" />
                 <span>{isSubmitting ? "Validating..." : "Submit Inquiry"}</span>

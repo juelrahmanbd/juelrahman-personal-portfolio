@@ -3,33 +3,20 @@
 @tailwind utilities;
 
 :root {
-  /* Light Modern SaaS Theme Tokens */
-  --bg-primary: #FAFAFF;
-  --bg-secondary: #F1EDFF;
-  --bg-surface: #FFFFFF;
-  --surface-default: #FFFFFF;
-  --surface-elevated: #FFFFFF;
-  --surface-lavender: #F1EDFF;
-
-  /* Accent Tokens */
-  --accent-purple: #6847E8;
-  --accent-deep: #5234CC;
-  --accent-green: #28B77A;
-  --accent-lavender: #F1EDFF;
-
-  /* Typography / Text Tokens */
-  --text-navy: #11152F;
-  --text-secondary: #626780;
-  --text-muted: #8E93AB;
-
-  /* Border Tokens */
-  --border-color: #E9E7F5;
-  --border-hover: #D4CFF2;
+  /* Editorial Blue & Ice Surface Theme Tokens */
+  --bg-surface: #F5F8FB;
+  --bg-card: #ffffff;
+  --text-primary: #101820;
+  --text-ink: #000000;
+  --accent-primary: #004275;
+  --accent-hover: #003157;
+  --border-subtle: rgba(16, 24, 32, 0.14);
+  --border-accent: rgba(0, 66, 117, 0.28);
 }
 
 @layer base {
   * {
-    border-color: var(--border-color);
+    border-color: var(--border-subtle);
   }
 
   html {
@@ -43,8 +30,8 @@
   }
 
   body {
-    background-color: var(--bg-primary);
-    color: var(--text-navy);
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
     font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
@@ -53,14 +40,42 @@
 
   /* Selection highlight */
   ::selection {
-    background-color: #E0D8FF;
-    color: #11152F;
+    background-color: rgba(0, 66, 117, 0.14);
+    color: var(--text-ink);
   }
 
   /* Accessible focus indicators */
   :focus-visible {
-    outline: 2px solid var(--accent-purple);
+    outline: 2px solid var(--accent-primary);
     outline-offset: 2px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover,
+.animate-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+    overflow-x: auto;
   }
 }
 
