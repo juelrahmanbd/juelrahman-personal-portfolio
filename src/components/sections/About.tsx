@@ -26,7 +26,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-16 md:py-24 bg-white border-b border-[rgba(16,24,32,0.1)] relative"
+      className="py-16 md:py-24 bg-white border-b border-[rgba(16,24,32,0.1)] relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 2-Column Clean Editorial Split */}
@@ -53,7 +53,7 @@ export default function About() {
                 </div>
 
                 {/* Portrait Image Frame */}
-                <div className="relative w-full aspect-[682/1024] rounded-lg overflow-hidden bg-slate-100 border border-[rgba(16,24,32,0.08)]">
+                <div className="relative w-full aspect-[682/1024] rounded-lg overflow-hidden bg-slate-100 border border-[rgba(16,24,32,0.08)] max-w-full">
                   <Image
                     src="/juel-about.png"
                     alt="Md. Juel Rahman — Full-Stack Web Developer and AI Engineer"
@@ -61,7 +61,7 @@ export default function About() {
                     height={1024}
                     priority
                     unoptimized
-                    className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    className="w-full h-full max-w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   />
                 </div>
 
