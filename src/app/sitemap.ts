@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { servicesData } from "@/data/servicesData";
+import { portfolioProjects } from "@/data/projectsData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://juelrahman.me";
@@ -13,6 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/services`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/portfolio`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
@@ -32,5 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...serviceRoutes];
+  const projectRoutes: MetadataRoute.Sitemap = portfolioProjects.map((project) => ({
+    url: `${baseUrl}/portfolio/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
 }

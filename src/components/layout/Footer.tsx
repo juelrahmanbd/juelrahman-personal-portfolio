@@ -86,7 +86,7 @@ export default function Footer() {
     { name: "About", href: "/#about", icon: User },
     { name: "Services", href: "/services", icon: Settings },
     { name: "Skills", href: "/#skills", icon: Layers },
-    { name: "Portfolio", href: "/#portfolio", icon: Folder },
+    { name: "Portfolio", href: "/portfolio", icon: Folder },
     { name: "Contact", href: "/contact", icon: Mail },
   ];
 

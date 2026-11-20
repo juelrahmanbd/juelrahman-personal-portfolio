@@ -42,6 +42,9 @@ export default function Navbar() {
     if (href === "#services" && pathname.startsWith("/services")) {
       return "/services";
     }
+    if (href === "#portfolio" && pathname.startsWith("/portfolio")) {
+      return "/portfolio";
+    }
     if (href === "#contact" && pathname.startsWith("/contact")) {
       return "/contact";
     }
@@ -100,8 +103,9 @@ export default function Navbar() {
             {navLinks.map((link) => {
               const isSectionActive = isHomePage && activeSection === link.href.substring(1);
               const isServiceActive = !isHomePage && link.href === "#services" && pathname.startsWith("/services");
+              const isPortfolioActive = !isHomePage && link.href === "#portfolio" && pathname.startsWith("/portfolio");
               const isContactActive = !isHomePage && link.href === "#contact" && pathname.startsWith("/contact");
-              const isActive = isSectionActive || isServiceActive || isContactActive;
+              const isActive = isSectionActive || isServiceActive || isPortfolioActive || isContactActive;
               return (
                 <Link
                   key={link.name}
@@ -149,8 +153,9 @@ export default function Navbar() {
               {navLinks.map((link) => {
                 const isSectionActive = isHomePage && activeSection === link.href.substring(1);
                 const isServiceActive = !isHomePage && link.href === "#services" && pathname.startsWith("/services");
+                const isPortfolioActive = !isHomePage && link.href === "#portfolio" && pathname.startsWith("/portfolio");
                 const isContactActive = !isHomePage && link.href === "#contact" && pathname.startsWith("/contact");
-                const isActive = isSectionActive || isServiceActive || isContactActive;
+                const isActive = isSectionActive || isServiceActive || isPortfolioActive || isContactActive;
                 return (
                   <Link
                     key={link.name}
