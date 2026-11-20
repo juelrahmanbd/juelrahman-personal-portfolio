@@ -1,95 +1,91 @@
 "use client";
 
 import React from "react";
-import { servicesList } from "@/data/portfolioData";
-import {
-  Sparkles,
-  Globe,
-  Layout,
-  Layers,
-  Cpu,
-  ShoppingCart,
-  Puzzle,
-  Workflow,
-  RefreshCw,
-  Search,
-  ShieldCheck,
-} from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { servicesData } from "@/data/servicesData";
+import { ServiceIcon } from "@/components/services/ServiceIcons";
 
 export default function Services() {
-  const getServiceIcon = (iconName: string) => {
-    switch (iconName) {
-      case "Globe":
-        return <Globe className="w-5 h-5 text-white" />;
-      case "Layout":
-        return <Layout className="w-5 h-5 text-white" />;
-      case "Layers":
-        return <Layers className="w-5 h-5 text-white" />;
-      case "Sparkles":
-        return <Sparkles className="w-5 h-5 text-white" />;
-      case "Cpu":
-        return <Cpu className="w-5 h-5 text-white" />;
-      case "ShoppingCart":
-        return <ShoppingCart className="w-5 h-5 text-white" />;
-      case "Puzzle":
-        return <Puzzle className="w-5 h-5 text-white" />;
-      case "Workflow":
-        return <Workflow className="w-5 h-5 text-white" />;
-      case "RefreshCw":
-        return <RefreshCw className="w-5 h-5 text-white" />;
-      case "Search":
-        return <Search className="w-5 h-5 text-white" />;
-      case "ShieldCheck":
-        return <ShieldCheck className="w-5 h-5 text-white" />;
-      default:
-        return <Sparkles className="w-5 h-5 text-white" />;
-    }
-  };
+  // Top 8 core services for the homepage 4x2 architectural grid
+  const topServices = servicesData.slice(0, 8);
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-[#F5F8FB] border-b border-[rgba(16,24,32,0.1)] relative">
+    <section
+      id="services"
+      className="py-20 md:py-28 bg-[#F5F8FB] border-b border-[rgba(16,24,32,0.1)] relative"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(16,24,32,0.14)] text-xs font-semibold text-[#004275] shadow-xs mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#004275]" />
-            <span>My Services</span>
+            <span className="tracking-wider uppercase">SERVICES</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#101820] tracking-tight mb-3">
-            Digital Solutions I Offer
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#101820] tracking-tight mb-4">
+            Web, AI &amp; Digital Engineering Solutions
           </h2>
-          <p className="text-sm sm:text-base text-[#101820]/75 leading-relaxed">
-            A complete range of development and digital services to build, improve, and scale your online presence.
+          <p className="text-sm sm:text-base md:text-lg text-[#101820]/75 leading-relaxed max-w-2xl mx-auto">
+            Custom-built technology and strategy to elevate your business, optimize operations, and drive measurable growth.
           </p>
         </div>
 
-        {/* Services Grid (Matches Reference Image 5x2 Cards) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {servicesList.map((service) => (
-            <div
+        {/* 4x2 Architectural Services Grid (Matches Reference Image) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {topServices.map((service) => (
+            <Link
               key={service.id}
-              className="bg-white rounded-3xl p-5 sm:p-5.5 border border-[rgba(16,24,32,0.14)] shadow-xs hover:border-[#004275]/40 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
+              href={`/services/${service.slug}`}
+              className="group bg-white rounded-xl border border-[rgba(16,24,32,0.14)] hover:border-[#004275] transition-all duration-300 hover:-translate-y-1 shadow-xs hover:shadow-md flex flex-col justify-between overflow-hidden relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004275]"
             >
-              <div>
-                {/* Icon Container with Distinct Theme Gradient */}
+              {/* Continuous Ambient Micro-Beam Accent Top Bar */}
+              <div className="relative h-1 w-full bg-[#004275] overflow-hidden">
                 <div
-                  className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-sm mb-4 group-hover:scale-105 transition-transform duration-200`}
-                >
-                  {getServiceIcon(service.iconName)}
+                  className="absolute top-0 bottom-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-sky-300 to-transparent animate-micro-beam pointer-events-none"
+                  aria-hidden="true"
+                />
+              </div>
+
+              {/* Card Inner Content */}
+              <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow">
+                <div>
+                  {/* Top Metadata Row: Official Icon & Correct Incremented Index (01–08) */}
+                  <div className="flex items-center justify-between mb-4">
+                    <ServiceIcon type={service.iconType} className="h-8" />
+                    <span className="text-xs sm:text-sm font-bold text-[#004275] font-mono tracking-wider">
+                      {service.index}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-base sm:text-lg font-bold text-[#101820] mb-2 tracking-tight group-hover:text-[#004275] transition-colors leading-snug">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed line-clamp-3">
+                    {service.shortDescription}
+                  </p>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-sm sm:text-base font-bold text-[#101820] mb-2 tracking-tight group-hover:text-[#004275] transition-colors leading-snug">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-xs text-[#101820]/70 leading-relaxed">
-                  {service.description}
-                </p>
+                {/* Bottom Row: Arrow linking forward */}
+                <div className="flex justify-end items-center pt-4 text-[#004275]">
+                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-200" />
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
+        </div>
+
+        {/* Centered "View All Services ->" CTA */}
+        <div className="text-center mt-12">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#004275] text-white text-sm font-semibold hover:bg-[#003157] transition-all shadow-xs hover:shadow-md hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004275]"
+          >
+            <span>View All Services</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>

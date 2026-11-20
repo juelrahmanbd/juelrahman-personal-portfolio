@@ -80,6 +80,32 @@
   }
 }
 
+@keyframes micro-beam {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  50%, 100% {
+    transform: translate3d(250%, 0, 0);
+  }
+}
+
+.animate-micro-beam {
+  animation: micro-beam 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.group:hover .animate-micro-beam,
+.group:focus-within .animate-micro-beam {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-micro-beam {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .animate-marquee {
   display: flex;
   width: max-content;

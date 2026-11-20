@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { siteConfig } from "@/data/portfolioData";
 import {
   Home,
@@ -81,20 +82,40 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: "Home", href: "#home", icon: Home },
-    { name: "About", href: "#about", icon: User },
-    { name: "Services", href: "#services", icon: Settings },
-    { name: "Skills", href: "#skills", icon: Layers },
-    { name: "Portfolio", href: "#portfolio", icon: Folder },
-    { name: "Contact", href: "#contact", icon: Mail },
+    { name: "Home", href: "/#home", icon: Home },
+    { name: "About", href: "/#about", icon: User },
+    { name: "Services", href: "/services", icon: Settings },
+    { name: "Skills", href: "/#skills", icon: Layers },
+    { name: "Portfolio", href: "/#portfolio", icon: Folder },
+    { name: "Contact", href: "/#contact", icon: Mail },
   ];
 
   const serviceItems = [
-    { name: "WordPress Website Development", href: "#services", icon: WordPressIcon },
-    { name: "Custom Website Development", href: "#services", icon: CodeWindowIcon },
-    { name: "Full-Stack Web Applications", href: "#services", icon: Layers },
-    { name: "AI-Powered Web Applications", href: "#services", icon: Wand2 },
-    { name: "Custom SaaS Solutions", href: "#services", icon: CloudCog },
+    {
+      name: "WordPress & Divi 5 Development",
+      href: "/services/wordpress-divi-5-development",
+      icon: WordPressIcon,
+    },
+    {
+      name: "Custom Website Development",
+      href: "/services/custom-website-development",
+      icon: CodeWindowIcon,
+    },
+    {
+      name: "Full-Stack Web Applications",
+      href: "/services/full-stack-web-applications",
+      icon: Layers,
+    },
+    {
+      name: "AI-Powered Web Applications",
+      href: "/services/ai-powered-web-applications",
+      icon: Wand2,
+    },
+    {
+      name: "Custom SaaS Solutions",
+      href: "/services/custom-saas-solutions",
+      icon: CloudCog,
+    },
   ];
 
   const socialChannels = [
@@ -209,13 +230,13 @@ export default function Footer() {
             </ul>
 
             <div className="mt-6 pt-1">
-              <a
-                href="#services"
+              <Link
+                href="/services"
                 className="inline-flex items-center gap-2 px-3.5 py-2 border border-white/60 hover:border-white text-xs font-medium text-white transition-colors"
               >
                 <span>View All Services</span>
                 <ArrowRight className="w-3.5 h-3.5 text-white" />
-              </a>
+              </Link>
             </div>
           </div>
 
