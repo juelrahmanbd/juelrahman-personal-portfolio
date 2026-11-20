@@ -1,131 +1,110 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
+import { Play, Pause } from "lucide-react";
 
 interface TestimonialCardData {
   id: string;
   name: string;
   country: string;
-  flag: "US" | "IT" | "DE" | "AU" | "FR" | "GB";
+  flag: "US" | "IT" | "DE" | "AU" | "SE";
+  avatarSrc: string;
   avatarInitial: string;
-  avatarBg: string;
+  avatarFallbackBg: string;
   quote: string;
-  bottomThumbnail?: boolean;
 }
 
-interface TestimonialColumn {
-  widthClass: string;
-  cards: TestimonialCardData[];
-}
+// 7 Filtered Client Reviews distributed evenly into 2 Rows (4 items each)
+const row1Cards: TestimonialCardData[] = [
+  {
+    id: "rev-hcharles",
+    name: "HCHARLES",
+    country: "United States",
+    flag: "US",
+    avatarSrc: "/avatars/hcharles_avatar.png",
+    avatarInitial: "H",
+    avatarFallbackBg: "#1E293B",
+    quote:
+      "It was an absolute pleasure working with Juel on this website project. He was always prompt in responding to my questions, attentive to details, and timely throughout the entire process. I would gladly work with him again on future projects!",
+  },
+  {
+    id: "rev-jazzoband",
+    name: "JAZZOBAND",
+    country: "Italy",
+    flag: "IT",
+    avatarSrc: "/avatars/jazzoband_avatar.png",
+    avatarInitial: "J",
+    avatarFallbackBg: "#0D9488",
+    quote:
+      "Working with Juel has been a very positive experience. From the beginning, he showed strong technical competence, professionalism and a real willingness to understand the project in depth rather than simply execute tasks mechanically. What I appreciated most was his ability to discuss different solutions...",
+  },
+  {
+    id: "rev-matelk",
+    name: "MATELK",
+    country: "Germany",
+    flag: "DE",
+    avatarSrc: "/avatars/matelk_avatar.png",
+    avatarInitial: "M",
+    avatarFallbackBg: "#D97706",
+    quote: "Tolle Arbeit, gerne wieder.",
+  },
+  {
+    id: "rev-eddy",
+    name: "EDDY",
+    country: "Germany",
+    flag: "DE",
+    avatarSrc: "/avatars/eddy_avatar.png",
+    avatarInitial: "E",
+    avatarFallbackBg: "#E11D48",
+    quote:
+      "Juel hat hoch professionell unseren Auftrag sehr exakt umgesetzt. Die Kommunikation war zu jederzeit schnell, flüssig und im Zweifel wurden wir nachgefragt, ob alles richtig verstanden worden ist (Re Briefing). Das war für uns fantastisch. Sehr gerne wieder. Es hat Spaß gemacht, alles lief überpünktlich...",
+  },
+];
 
-const testimonialColumns: TestimonialColumn[] = [
+const row2Cards: TestimonialCardData[] = [
   {
-    widthClass: "w-[300px] sm:w-[380px] lg:w-[420px]",
-    cards: [
-      {
-        id: "rev-hcharles",
-        name: "HCHARLES",
-        country: "United States",
-        flag: "US",
-        avatarInitial: "H",
-        avatarBg: "#1E293B",
-        quote:
-          "It was an absolute pleasure working with Juel on this website project. He was always prompt in responding to my questions, attentive to details, and timely throughout the entire development process. Delivered a high-performance, responsive solution.",
-        bottomThumbnail: true,
-      },
-      {
-        id: "rev-jazzoband",
-        name: "JAZZOBAND",
-        country: "Italy",
-        flag: "IT",
-        avatarInitial: "J",
-        avatarBg: "#0D9488",
-        quote:
-          "Working with Juel has been a very positive experience. From the beginning, he showed strong technical competence, project clarity, and deep expertise in web engineering. Fast delivery and flawless execution.",
-        bottomThumbnail: false,
-      },
-    ],
+    id: "rev-oh75",
+    name: "OH75",
+    country: "Australia",
+    flag: "AU",
+    avatarSrc: "/avatars/oh75_avatar.png",
+    avatarInitial: "O",
+    avatarFallbackBg: "#7C3AED",
+    quote:
+      "Juel's patience, guidance, enthusiasm and responsiveness during the festive season downtime, is as good as it gets. Communication is excellent - always respectful and responsive. His knowledge, calm problem-solving, ability to follow a brief and produce genuinely high quality work with my WordPress website made it a great experience. Highly recommend!",
   },
   {
-    widthClass: "w-[280px] sm:w-[320px] lg:w-[350px]",
-    cards: [
-      {
-        id: "rev-matelk",
-        name: "MATELK",
-        country: "Germany",
-        flag: "DE",
-        avatarInitial: "M",
-        avatarBg: "#D97706",
-        quote:
-          "Tolle Arbeit, gerne wieder. (Great work, gladly again.) He exceeded our expectations in custom architecture and clean code. Communication was prompt, polite, and proactive throughout.",
-        bottomThumbnail: false,
-      },
-      {
-        id: "rev-eddy",
-        name: "EDDY",
-        country: "Germany",
-        flag: "DE",
-        avatarInitial: "E",
-        avatarBg: "#E11D48",
-        quote:
-          "Juel hat hoch professionell unseren Auftrag sehr exakt umgesetzt. Die Kommunikation war zu jederzeit schnell, transparent und ergebnisorientiert. Absolute Empfehlung für anspruchsvolle Webentwicklung.",
-        bottomThumbnail: false,
-      },
-    ],
+    id: "rev-vicvale",
+    name: "VICVALE",
+    country: "Australia",
+    flag: "AU",
+    avatarSrc: "/avatars/vicvale_avatar.png",
+    avatarInitial: "V",
+    avatarFallbackBg: "#2563EB",
+    quote: "Good work, mostly happy with results",
   },
   {
-    widthClass: "w-[300px] sm:w-[360px] lg:w-[410px]",
-    cards: [
-      {
-        id: "rev-oh75",
-        name: "OH75",
-        country: "Australia",
-        flag: "AU",
-        avatarInitial: "O",
-        avatarBg: "#7C3AED",
-        quote:
-          "Juel's patience, guidance, enthusiasm and responsiveness during the festive season downtime is as good as it gets. Communication is excellent - always respectful, skilled, and focused on quality results.",
-        bottomThumbnail: false,
-      },
-      {
-        id: "rev-stephane",
-        name: "STEPHANE",
-        country: "France",
-        flag: "FR",
-        avatarInitial: "S",
-        avatarBg: "#4F46E5",
-        quote:
-          "Exceptional problem solver. Juel understood our complex integration needs right away and built a robust, scalable system that saved us weeks of development time.",
-        bottomThumbnail: false,
-      },
-    ],
+    id: "rev-mollemolen",
+    name: "MOLLEMOLEN",
+    country: "Sweden",
+    flag: "SE",
+    avatarSrc: "/avatars/mollemolen_avatar.png",
+    avatarInitial: "M",
+    avatarFallbackBg: "#059669",
+    quote:
+      "Perfection, exactly like we weanted it! Fast work aswell, only hade few days deadline but he made it!",
   },
   {
-    widthClass: "w-[290px] sm:w-[340px] lg:w-[370px]",
-    cards: [
-      {
-        id: "rev-davidm",
-        name: "DAVIDM",
-        country: "United Kingdom",
-        flag: "GB",
-        avatarInitial: "D",
-        avatarBg: "#2563EB",
-        quote:
-          "Top-tier full-stack developer. Juel delivered a pristine custom web solution that improved our Core Web Vitals and load performance dramatically. A true professional with great attention to detail.",
-        bottomThumbnail: false,
-      },
-      {
-        id: "rev-sarahk",
-        name: "SARAH_K",
-        country: "United States",
-        flag: "US",
-        avatarInitial: "S",
-        avatarBg: "#059669",
-        quote:
-          "One of the most dependable engineers on Fiverr Pro. Clean code, sharp execution, and always proactively suggests architectural improvements. Will definitely hire again.",
-        bottomThumbnail: false,
-      },
-    ],
+    id: "rev-hcharles-dup",
+    name: "HCHARLES",
+    country: "United States",
+    flag: "US",
+    avatarSrc: "/avatars/hcharles_avatar.png",
+    avatarInitial: "H",
+    avatarFallbackBg: "#1E293B",
+    quote:
+      "Delivered a pristine, high-performance responsive web application. Attentive to details, proactive communication, and zero friction from start to finish.",
   },
 ];
 
@@ -191,30 +170,16 @@ function CountryFlag({ country }: { country: string }) {
           <circle cx="13.5" cy="9.5" r="0.8" fill="#FFF" />
         </svg>
       );
-    case "FR":
+    case "SE":
       return (
         <svg
           viewBox="0 0 18 12"
           className="w-4 h-2.5 inline-block rounded-none border border-black/10 shrink-0"
           aria-hidden="true"
         >
-          <rect width="6" height="12" fill="#002395" />
-          <rect x="6" width="6" height="12" fill="#FFFFFF" />
-          <rect x="12" width="6" height="12" fill="#ED2939" />
-        </svg>
-      );
-    case "GB":
-      return (
-        <svg
-          viewBox="0 0 18 12"
-          className="w-4 h-2.5 inline-block rounded-none border border-black/10 shrink-0"
-          aria-hidden="true"
-        >
-          <rect width="18" height="12" fill="#012169" />
-          <path d="M0 0l18 12m0-12L0 12" stroke="#FFF" strokeWidth="2.5" />
-          <path d="M0 0l18 12m0-12L0 12" stroke="#C8102E" strokeWidth="1.5" />
-          <path d="M9 0v12M0 6h18" stroke="#FFF" strokeWidth="4" />
-          <path d="M9 0v12M0 6h18" stroke="#C8102E" strokeWidth="2.4" />
+          <rect width="18" height="12" fill="#006AA7" />
+          <rect x="5" width="2.5" height="12" fill="#FECC00" />
+          <rect y="4.75" width="18" height="2.5" fill="#FECC00" />
         </svg>
       );
     default:
@@ -256,7 +221,48 @@ function RatingStars() {
   );
 }
 
-// Individual Testimonial Card with hairline border and sharp non-rounded styling
+// Robust Avatar Component with local image loading and monogram fallback
+function ClientAvatar({
+  src,
+  alt,
+  initial,
+  fallbackBg,
+}: {
+  src: string;
+  alt: string;
+  initial: string;
+  fallbackBg: string;
+}) {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError || !src) {
+    return (
+      <div
+        className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0 select-none shadow-2xs"
+        style={{ backgroundColor: fallbackBg }}
+        aria-hidden="true"
+      >
+        {initial}
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 border border-[rgba(16,24,32,0.1)] shrink-0 shadow-2xs relative">
+      <Image
+        src={src}
+        alt={alt}
+        width={40}
+        height={40}
+        unoptimized
+        className="w-full h-full object-cover object-top"
+        onError={() => setHasError(true)}
+      />
+    </div>
+  );
+}
+
+// Individual Testimonial Card with STRICT UNIFORM DIMENSIONS across all cards
 function TestimonialCard({
   card,
   isDuplicate = false,
@@ -267,121 +273,156 @@ function TestimonialCard({
   return (
     <article
       aria-hidden={isDuplicate ? "true" : undefined}
-      className="bg-white border border-[rgba(0,66,117,0.22)] rounded-xs p-5 sm:p-6 transition-colors duration-200 hover:border-[#004275] shadow-xs flex flex-col justify-between h-full"
+      className="w-[310px] sm:w-[350px] md:w-[370px] h-[200px] sm:h-[210px] shrink-0 bg-white border border-[rgba(0,66,117,0.22)] hover:border-[#004275] rounded-xs p-5 transition-colors duration-200 shadow-2xs flex flex-col justify-between select-none"
     >
       <div>
         {/* Card Header: Avatar, Name & Country on Left; Stars & Fiverr Badge on Right */}
-        <div className="flex items-start justify-between gap-3 mb-3.5">
-          <div className="flex items-center gap-3">
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0 select-none shadow-2xs"
-              style={{ backgroundColor: card.avatarBg }}
-            >
-              {card.avatarInitial}
-            </div>
-            <div>
-              <div className="font-bold text-sm text-[#101820] tracking-tight">
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <ClientAvatar
+              src={card.avatarSrc}
+              alt={`${card.name} profile avatar`}
+              initial={card.avatarInitial}
+              fallbackBg={card.avatarFallbackBg}
+            />
+            <div className="min-w-0">
+              <div className="font-bold text-sm text-[#101820] tracking-tight truncate">
                 {card.name}
               </div>
               <div className="flex items-center gap-1.5 text-xs text-[#101820]/80 mt-0.5">
                 <CountryFlag country={card.flag} />
-                <span>{card.country}</span>
+                <span className="truncate">{card.country}</span>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-1.5 shrink-0">
             <RatingStars />
             <FiverrBadge />
           </div>
         </div>
 
-        {/* Review Quote Body */}
-        <p className="text-xs sm:text-sm text-[#004275] leading-relaxed font-normal">
+        {/* Review Quote Body with line-clamp so all cards retain equal height */}
+        <p className="text-xs sm:text-sm text-[#004275] leading-relaxed line-clamp-4 font-normal mt-2">
           &ldquo;{card.quote}&rdquo;
         </p>
       </div>
 
-      {/* Optional bottom attribution thumbnail matching Card 1 in reference */}
-      {card.bottomThumbnail && (
-        <div className="mt-4 pt-3 border-t border-[rgba(16,24,32,0.08)] flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-[#101820] text-white flex items-center justify-center text-[10px] font-bold">
-            JR
-          </div>
-          <span className="text-[11px] text-[#101820]/60 font-medium">
-            Project Verified on Fiverr
-          </span>
-        </div>
-      )}
+      {/* Subtle Verified Indicator */}
+      <div className="pt-2 border-t border-[rgba(16,24,32,0.06)] flex items-center justify-between text-[11px] text-[#101820]/60">
+        <span>Verified Fiverr Client</span>
+        <span className="text-[#1DBF73] font-semibold">5.0 ★</span>
+      </div>
     </article>
   );
 }
 
 export default function Testimonials() {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
     <section
       id="testimonials"
-      className="py-20 md:py-28 bg-[#F5F8FB] border-b border-[rgba(16,24,32,0.1)] relative overflow-hidden"
+      className="py-20 md:py-28 bg-[#F5F8FB] border-b border-[rgba(16,24,32,0.1)] relative"
     >
-      {/* 1. Centered Top Header */}
-      <header className="text-center max-w-3xl mx-auto mb-14 px-4 sm:px-6">
-        {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 mb-3">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#004275]">
-            ✦ OUR IMPACT &amp; REPUTATION
-          </span>
-        </div>
+      {/* Centered Container Bounding Header & Slider Track */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 1. Centered Top Header */}
+        <header className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#004275]">
+              ✦ OUR IMPACT &amp; REPUTATION
+            </span>
+          </div>
 
-        {/* Main Section Headline */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#101820] tracking-tight mb-4">
-          Loved by Industry Leaders &amp; Global Clients
-        </h2>
+          {/* Main Section Headline */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#101820] tracking-tight mb-4">
+            Loved by Industry Leaders &amp; Global Clients
+          </h2>
 
-        {/* Description Paragraph */}
-        <p className="text-sm sm:text-base text-[#004275] leading-relaxed max-w-2xl mx-auto mb-6">
-          Trusted by innovative companies and individual entrepreneurs
-          worldwide. See what they say about collaborating on full-stack and AI
-          projects.
-        </p>
+          {/* Description Paragraph */}
+          <p className="text-sm sm:text-base text-[#004275] leading-relaxed max-w-2xl mx-auto mb-6">
+            Trusted by innovative companies and individual entrepreneurs
+            worldwide. See what they say about collaborating on full-stack and
+            AI projects.
+          </p>
 
-        {/* Authority Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-[#1DBF73] text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-xs shadow-xs">
-          <span className="w-2 h-2 rounded-full bg-white" />
-          <span>TOP RATED FREELANCER &bull; VERIFIED FIVERR PRO</span>
-        </div>
-      </header>
-
-      {/* 2. Full-Width Infinite Horizontal Masonry Slider Grid */}
-      <div className="w-full overflow-hidden relative py-2 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
-        <div className="flex w-max animate-marquee-reviews gap-5 items-stretch">
-          {/* Primary Column Set */}
-          {testimonialColumns.map((col, colIdx) => (
-            <div
-              key={`col-1-${colIdx}`}
-              className={`flex flex-col gap-5 justify-between shrink-0 ${col.widthClass}`}
-            >
-              {col.cards.map((card) => (
-                <TestimonialCard key={card.id} card={card} />
-              ))}
+          {/* Authority Badge & Play/Pause Controls */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#1DBF73] text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-xs shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-white" />
+              <span>TOP RATED FREELANCER &bull; VERIFIED FIVERR PRO</span>
             </div>
-          ))}
 
-          {/* Secondary Column Set for Seamless Continuous Infinite Marquee */}
-          {testimonialColumns.map((col, colIdx) => (
-            <div
-              key={`col-2-${colIdx}`}
-              className={`flex flex-col gap-5 justify-between shrink-0 ${col.widthClass}`}
-              aria-hidden="true"
+            <button
+              type="button"
+              onClick={() => setIsPaused(!isPaused)}
+              aria-label={
+                isPaused
+                  ? "Resume testimonial slider motion"
+                  : "Pause testimonial slider motion"
+              }
+              className="inline-flex items-center gap-1.5 px-3 py-2 bg-white border border-[rgba(16,24,32,0.14)] hover:border-[#004275] text-xs font-semibold text-[#004275] transition-colors rounded-xs shadow-2xs cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-[#004275]"
             >
-              {col.cards.map((card) => (
+              {isPaused ? (
+                <>
+                  <Play className="w-3.5 h-3.5 fill-current" />
+                  <span>Resume</span>
+                </>
+              ) : (
+                <>
+                  <Pause className="w-3.5 h-3.5 fill-current" />
+                  <span>Pause</span>
+                </>
+              )}
+            </button>
+          </div>
+        </header>
+
+        {/* 2. Container-Bounded 2-Row Dual-Direction Smooth Slider Track */}
+        <div className="w-full overflow-hidden relative py-2 [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]">
+          {/* Row 1 (Line 1): Smooth continuous infinite motion moving LEFT */}
+          <div className="mb-4 sm:mb-5 overflow-hidden">
+            <div
+              className="flex w-max animate-marquee-left gap-4 sm:gap-5"
+              style={{ animationPlayState: isPaused ? "paused" : undefined }}
+            >
+              {/* Primary Item Set */}
+              {row1Cards.map((card) => (
+                <TestimonialCard key={`r1-${card.id}`} card={card} />
+              ))}
+              {/* Duplicate Set for Seamless Wrap-Around */}
+              {row1Cards.map((card) => (
                 <TestimonialCard
-                  key={`dup-${card.id}`}
+                  key={`r1-dup-${card.id}`}
                   card={card}
                   isDuplicate
                 />
               ))}
             </div>
-          ))}
+          </div>
+
+          {/* Row 2 (Line 2): Smooth continuous infinite motion moving RIGHT */}
+          <div className="overflow-hidden">
+            <div
+              className="flex w-max animate-marquee-right gap-4 sm:gap-5"
+              style={{ animationPlayState: isPaused ? "paused" : undefined }}
+            >
+              {/* Primary Item Set */}
+              {row2Cards.map((card) => (
+                <TestimonialCard key={`r2-${card.id}`} card={card} />
+              ))}
+              {/* Duplicate Set for Seamless Wrap-Around */}
+              {row2Cards.map((card) => (
+                <TestimonialCard
+                  key={`r2-dup-${card.id}`}
+                  card={card}
+                  isDuplicate
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

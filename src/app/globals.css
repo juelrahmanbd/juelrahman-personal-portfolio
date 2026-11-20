@@ -62,6 +62,24 @@
   }
 }
 
+@keyframes marquee-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .animate-marquee {
   display: flex;
   width: max-content;
@@ -74,21 +92,31 @@
   animation-play-state: paused;
 }
 
-.animate-marquee-reviews {
+.animate-marquee-left {
   display: flex;
   width: max-content;
-  animation: marquee 48s linear infinite;
+  animation: marquee-left 38s linear infinite;
   will-change: transform;
 }
 
-.animate-marquee-reviews:hover,
-.animate-marquee-reviews:focus-within {
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-left:focus-within,
+.animate-marquee-right:hover,
+.animate-marquee-right:focus-within {
   animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
-  .animate-marquee-reviews {
+  .animate-marquee-left,
+  .animate-marquee-right {
     animation: none;
     overflow-x: auto;
   }
