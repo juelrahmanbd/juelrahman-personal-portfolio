@@ -87,7 +87,7 @@ export default function Footer() {
     { name: "Services", href: "/services", icon: Settings },
     { name: "Skills", href: "/#skills", icon: Layers },
     { name: "Portfolio", href: "/#portfolio", icon: Folder },
-    { name: "Contact", href: "/#contact", icon: Mail },
+    { name: "Contact", href: "/contact", icon: Mail },
   ];
 
   const serviceItems = [

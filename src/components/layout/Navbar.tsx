@@ -42,6 +42,9 @@ export default function Navbar() {
     if (href === "#services" && pathname.startsWith("/services")) {
       return "/services";
     }
+    if (href === "#contact" && pathname.startsWith("/contact")) {
+      return "/contact";
+    }
     return isHomePage ? href : `/${href}`;
   };
 
@@ -97,7 +100,8 @@ export default function Navbar() {
             {navLinks.map((link) => {
               const isSectionActive = isHomePage && activeSection === link.href.substring(1);
               const isServiceActive = !isHomePage && link.href === "#services" && pathname.startsWith("/services");
-              const isActive = isSectionActive || isServiceActive;
+              const isContactActive = !isHomePage && link.href === "#contact" && pathname.startsWith("/contact");
+              const isActive = isSectionActive || isServiceActive || isContactActive;
               return (
                 <Link
                   key={link.name}
@@ -117,7 +121,7 @@ export default function Navbar() {
           {/* Right CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <Link
-              href={isHomePage ? "#contact" : "/#contact"}
+              href={isHomePage ? "#contact" : "/contact"}
               className="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#004275] hover:bg-[#003157] shadow-xs hover:shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004275] focus-visible:ring-offset-2"
             >
               <span>Let&apos;s Talk</span>
@@ -145,7 +149,8 @@ export default function Navbar() {
               {navLinks.map((link) => {
                 const isSectionActive = isHomePage && activeSection === link.href.substring(1);
                 const isServiceActive = !isHomePage && link.href === "#services" && pathname.startsWith("/services");
-                const isActive = isSectionActive || isServiceActive;
+                const isContactActive = !isHomePage && link.href === "#contact" && pathname.startsWith("/contact");
+                const isActive = isSectionActive || isServiceActive || isContactActive;
                 return (
                   <Link
                     key={link.name}
@@ -165,7 +170,7 @@ export default function Navbar() {
 
             <div className="pt-2 border-t border-[rgba(16,24,32,0.1)]">
               <Link
-                href={isHomePage ? "#contact" : "/#contact"}
+                href={isHomePage ? "#contact" : "/contact"}
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-full text-sm font-semibold text-white bg-[#004275] hover:bg-[#003157] shadow-xs"
               >
