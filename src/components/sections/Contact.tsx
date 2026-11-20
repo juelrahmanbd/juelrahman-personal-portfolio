@@ -1,287 +1,669 @@
 "use client";
 
-import React, { useState } from "react";
-import { siteConfig } from "@/data/portfolioData";
-import { Mail, Phone, MessageSquare, Send, CheckCircle2, AlertCircle, Copy, Check } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import {
+  Mail,
+  Send,
+  MessageCircle,
+  Copy,
+  Check,
+  ArrowRight,
+  ArrowLeft,
+  CheckCircle2,
+  AlertCircle,
+  Loader2,
+  Sparkles,
+  Phone,
+} from "lucide-react";
+
+const projectTypes = [
+  "WordPress & Divi 5",
+  "Custom Website",
+  "Full-Stack Web App",
+  "AI & Automation",
+  "eCommerce / SaaS",
+  "SEO, Speed & Security",
+] as const;
+
+type ProjectType = (typeof projectTypes)[number];
+
+const stepLabels = [
+  "Project Type",
+  "Your Name",
+  "Contact Email",
+  "Project Scope",
+];
 
 export default function Contact() {
+  const [currentStep, setCurrentStep] = useState<number>(1);
   const [formData, setFormData] = useState({
+    projectType: "WordPress & Divi 5" as ProjectType,
     fullName: "",
     email: "",
-    projectType: "Custom Web Application",
-    budgetRange: "$1,500 - $3,000",
     message: "",
   });
 
-  const [copied, setCopied] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
-  const [statusMessage, setStatusMessage] = useState("");
+  const [copiedItem, setCopiedItem] = useState<string | null>(null);
+  const [stepError, setStepError] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string>("");
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(siteConfig.contact.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const messageInputRef = useRef<HTMLTextAreaElement>(null);
+
+  // Auto-focus active input when step changes
+  useEffect(() => {
+    setStepError("");
+    if (currentStep === 2) {
+      setTimeout(() => nameInputRef.current?.focus(), 100);
+    } else if (currentStep === 3) {
+      setTimeout(() => emailInputRef.current?.focus(), 100);
+    } else if (currentStep === 4) {
+      setTimeout(() => messageInputRef.current?.focus(), 100);
+    }
+  }, [currentStep]);
+
+  const handleCopy = (text: string, id: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedItem(id);
+    setTimeout(() => {
+      setCopiedItem((prev) => (prev === id ? null : prev));
+    }, 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateCurrentStep = (): boolean => {
+    setStepError("");
+    if (currentStep === 1) {
+      if (!formData.projectType) {
+        setStepError("Please select a project type.");
+        return false;
+      }
+      return true;
+    }
+    if (currentStep === 2) {
+      if (!formData.fullName.trim()) {
+        setStepError("Please enter your name.");
+        return false;
+      }
+      if (formData.fullName.trim().length < 2) {
+        setStepError("Please enter a valid name.");
+        return false;
+      }
+      return true;
+    }
+    if (currentStep === 3) {
+      if (!formData.email.trim()) {
+        setStepError("Please enter your email address.");
+        return false;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email.trim())) {
+        setStepError("Please enter a valid email address (e.g. name@domain.com).");
+        return false;
+      }
+      return true;
+    }
+    if (currentStep === 4) {
+      if (!formData.message.trim()) {
+        setStepError("Please share a brief note about your project goals or timeline.");
+        return false;
+      }
+      return true;
+    }
+    return true;
+  };
+
+  const handleNext = () => {
+    if (validateCurrentStep()) {
+      if (currentStep < 4) {
+        setCurrentStep((prev) => prev + 1);
+      }
+    }
+  };
+
+  const handleBack = () => {
+    setStepError("");
+    if (currentStep > 1) {
+      setCurrentStep((prev) => prev - 1);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      if (currentStep < 4) {
+        e.preventDefault();
+        handleNext();
+      }
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!formData.fullName.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setFormStatus("error");
-      setStatusMessage("Please fill in all required fields.");
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setFormStatus("error");
-      setStatusMessage("Please enter a valid email address.");
-      return;
-    }
+    if (!validateCurrentStep()) return;
 
     setIsSubmitting(true);
-    setFormStatus("idle");
+    setSubmitError("");
 
-    // Local client-side validation simulation
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setFormStatus("success");
-      setStatusMessage(
-        "Thank you! Your inquiry was validated. (Note: Email service will be connected in next integration phase)."
-      );
-      setFormData({
-        fullName: "",
-        email: "",
-        projectType: "Custom Web Application",
-        budgetRange: "$1,500 - $3,000",
-        message: "",
+    try {
+      // Direct FormSubmit AJAX submission to juelrahman09@gmail.com
+      const response = await fetch("https://formsubmit.co/ajax/juelrahman09@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.fullName.trim(),
+          email: formData.email.trim(),
+          projectType: formData.projectType,
+          message: formData.message.trim(),
+          _subject: `New Portfolio Inquiry from juelrahman.me: ${formData.projectType} (${formData.fullName.trim()})`,
+          _captcha: "false",
+          _template: "table",
+          _honey: "", // Honeypot field
+        }),
       });
-    }, 800);
+
+      const data = await response.json();
+
+      if (response.ok || data.success === "true" || data.success === true) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error(data.message || "Submission failed");
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      // If network fails (e.g. adblocker), still provide graceful confirmation with fallback
+      setSubmitError(
+        "Could not deliver via automated pipeline. Please send your inquiry directly to juelrahman09@gmail.com."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
+  const resetForm = () => {
+    setIsSubmitted(false);
+    setSubmitError("");
+    setStepError("");
+    setCurrentStep(1);
+    setFormData({
+      projectType: "WordPress & Divi 5",
+      fullName: "",
+      email: "",
+      message: "",
+    });
+  };
+
+  const progressPercentage = (currentStep / 4) * 100;
+
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#F5F8FB] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(16,24,32,0.14)] text-xs font-semibold text-[#004275] shadow-xs mb-4">
-            <Mail className="w-3.5 h-3.5 text-[#004275]" />
-            <span>Get in Touch</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#101820] tracking-tight mb-3">
-            Let&apos;s Work Together
-          </h2>
-          <p className="text-sm sm:text-base text-[#101820]/75 leading-relaxed">
-            Have a project, idea, or requirement? Feel free to reach out — I&apos;d be happy to discuss how I can help.
-          </p>
-        </div>
-
-        {/* 3 Contact Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto mb-12">
-          {/* Email Card */}
-          <div className="bg-white rounded-3xl p-6 border border-[#E9E7F5] shadow-xs hover:shadow-card hover:border-[#D4CFF2] transition-all duration-300 flex flex-col justify-between">
+    <section id="contact" className="py-14 lg:py-16 bg-[#F5F8FB] relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Unified 2-Column Split Architectural Container */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 rounded-xl border border-[rgba(16,24,32,0.14)] overflow-hidden shadow-sm bg-white">
+          {/* ========================================================= */}
+          {/* 1. LEFT COLUMN — Compact Contact Hub (lg:col-span-5)      */}
+          {/* ========================================================= */}
+          <div className="lg:col-span-5 bg-[#101820] text-white p-6 sm:p-8 lg:p-9 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/10 relative">
             <div>
-              <div className="w-11 h-11 rounded-2xl bg-[#F1EDFF] flex items-center justify-center text-[#6847E8] mb-4">
-                <Mail className="w-5 h-5" />
+              {/* Eyebrow Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-semibold text-[#F5F8FB] tracking-wider uppercase mb-4">
+                <Sparkles className="w-3 h-3 text-sky-400" />
+                <span>GET IN TOUCH</span>
               </div>
-              <h3 className="text-sm font-bold text-[#8E93AB] uppercase tracking-wider mb-1">
-                Email
-              </h3>
-              <div className="text-base font-bold text-[#11152F] mb-1 break-all">
-                {siteConfig.contact.email}
-              </div>
-              <p className="text-xs text-[#626780] mb-4">
-                Send an email with your project details.
-              </p>
-            </div>
-            <div className="flex items-center gap-2 pt-3 border-t border-[#E9E7F5]">
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                className="text-xs font-semibold text-[#6847E8] hover:underline"
-              >
-                Send Email &rarr;
-              </a>
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className="ml-auto p-1.5 text-[#8E93AB] hover:text-[#11152F] transition-colors rounded-lg hover:bg-[#FAFAFF]"
-                title="Copy email to clipboard"
-              >
-                {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-              </button>
-            </div>
-          </div>
 
-          {/* WhatsApp Card */}
-          <div className="bg-white rounded-3xl p-6 border border-[#E9E7F5] shadow-xs hover:shadow-card hover:border-[#D4CFF2] transition-all duration-300 flex flex-col justify-between">
-            <div>
-              <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-4">
-                <Phone className="w-5 h-5" />
-              </div>
-              <h3 className="text-sm font-bold text-[#8E93AB] uppercase tracking-wider mb-1">
-                WhatsApp
-              </h3>
-              <div className="text-base font-bold text-[#11152F] mb-1">
-                {siteConfig.contact.whatsapp}
-              </div>
-              <p className="text-xs text-[#626780] mb-4">
-                Chat on WhatsApp for a quick discussion.
+              {/* Section Heading */}
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2.5">
+                Let&apos;s Work Together
+              </h2>
+
+              {/* Short Description */}
+              <p className="text-xs sm:text-sm text-[#E2E8F0]/80 leading-relaxed mb-6">
+                Have a project, idea, or requirement? Start a quick step-by-step inquiry or reach out directly.
               </p>
+
+              {/* 3 Compact Interactive Contact Rows */}
+              <div className="space-y-3">
+                {/* Row 1 — Primary Email */}
+                <div className="bg-white/5 border border-white/10 rounded-lg p-3 hover:border-white/20 transition-colors flex items-center justify-between gap-3 group">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-8 h-8 rounded-md bg-[#004275] text-white flex items-center justify-center shrink-0">
+                      <Mail className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">
+                        Primary Email
+                      </span>
+                      <a
+                        href="mailto:hellow@juelrahman.com"
+                        className="text-xs font-semibold text-white hover:text-sky-300 transition-colors truncate block"
+                      >
+                        hellow@juelrahman.com
+                      </a>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy("hellow@juelrahman.com", "primary")}
+                    className="p-1.5 rounded-md hover:bg-white/10 text-slate-400 hover:text-white transition-colors shrink-0"
+                    title="Copy primary email"
+                    aria-label="Copy primary email"
+                  >
+                    {copiedItem === "primary" ? (
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    ) : (
+                      <Copy className="w-3.5 h-3.5" />
+                    )}
+                  </button>
+                </div>
+
+                {/* Row 2 — Direct / Inquiry Email */}
+                <div className="bg-white/5 border border-white/10 rounded-lg p-3 hover:border-white/20 transition-colors flex items-center justify-between gap-3 group">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-8 h-8 rounded-md bg-[#004275] text-white flex items-center justify-center shrink-0">
+                      <Send className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">
+                        Direct Inquiry
+                      </span>
+                      <a
+                        href="mailto:juelrahman09@gmail.com"
+                        className="text-xs font-semibold text-white hover:text-sky-300 transition-colors truncate block"
+                      >
+                        juelrahman09@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy("juelrahman09@gmail.com", "inquiry")}
+                    className="p-1.5 rounded-md hover:bg-white/10 text-slate-400 hover:text-white transition-colors shrink-0"
+                    title="Copy inquiry email"
+                    aria-label="Copy inquiry email"
+                  >
+                    {copiedItem === "inquiry" ? (
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    ) : (
+                      <Copy className="w-3.5 h-3.5" />
+                    )}
+                  </button>
+                </div>
+
+                {/* Row 3 — WhatsApp / Phone */}
+                <div className="bg-white/5 border border-white/10 rounded-lg p-3 hover:border-white/20 transition-colors flex items-center justify-between gap-3 group">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-8 h-8 rounded-md bg-[#059669] text-white flex items-center justify-center shrink-0">
+                      <MessageCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">
+                        WhatsApp &amp; Phone
+                      </span>
+                      <a
+                        href="https://wa.me/8801304555973"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-semibold text-white hover:text-emerald-300 transition-colors truncate block"
+                      >
+                        01304555973
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0">
+                    <a
+                      href="tel:+8801304555973"
+                      className="p-1.5 rounded-md hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+                      title="Call direct"
+                      aria-label="Call direct"
+                    >
+                      <Phone className="w-3.5 h-3.5" />
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => handleCopy("01304555973", "phone")}
+                      className="p-1.5 rounded-md hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+                      title="Copy phone number"
+                      aria-label="Copy phone number"
+                    >
+                      {copiedItem === "phone" ? (
+                        <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      ) : (
+                        <Copy className="w-3.5 h-3.5" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="pt-3 border-t border-[#E9E7F5]">
-              <span className="text-xs font-semibold text-emerald-600">
-                Available for consultations &rarr;
+
+            {/* Bottom Status Line */}
+            <div className="pt-6 mt-6 border-t border-white/10 flex items-center gap-2.5 text-xs text-slate-300">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
+              <span>Typically responds within 24 hours</span>
             </div>
           </div>
 
-          {/* Project Inquiry Card */}
-          <div className="bg-white rounded-3xl p-6 border border-[#E9E7F5] shadow-xs hover:shadow-card hover:border-[#D4CFF2] transition-all duration-300 flex flex-col justify-between">
-            <div>
-              <div className="w-11 h-11 rounded-2xl bg-[#F1EDFF] flex items-center justify-center text-[#6847E8] mb-4">
-                <MessageSquare className="w-5 h-5" />
-              </div>
-              <h3 className="text-sm font-bold text-[#8E93AB] uppercase tracking-wider mb-1">
-                Project Inquiry
-              </h3>
-              <div className="text-base font-bold text-[#11152F] mb-1">
-                Direct Project Form
-              </div>
-              <p className="text-xs text-[#626780] mb-4">
-                Fill out a short message about your project and I&apos;ll get back to you soon.
-              </p>
-            </div>
-            <div className="pt-3 border-t border-[#E9E7F5]">
-              <span className="text-xs font-semibold text-[#6847E8]">
-                24–48h response time &rarr;
-              </span>
-            </div>
-          </div>
-        </div>
+          {/* ========================================================= */}
+          {/* 2. RIGHT COLUMN — 1-Field-at-a-Time Multi-Step Form       */}
+          {/* ========================================================= */}
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 lg:p-9 flex flex-col justify-between relative">
+            {isSubmitted ? (
+              /* Success Confirmation State */
+              <div className="py-8 flex flex-col items-center text-center justify-center h-full my-auto animate-in fade-in zoom-in-95 duration-200">
+                <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mb-4 shadow-xs">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#101820] tracking-tight mb-2">
+                  Inquiry Sent Successfully
+                </h3>
+                <p className="text-xs sm:text-sm text-[#475569] max-w-md leading-relaxed mb-6">
+                  Thank you, <span className="font-semibold text-[#101820]">{formData.fullName}</span>! Your inquiry has been delivered directly to <span className="font-semibold text-[#004275]">juelrahman09@gmail.com</span>. I typically review details and follow up within 24 hours.
+                </p>
 
-        {/* Contact Form Container */}
-        <div className="max-w-3xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-[#E9E7F5] shadow-card">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {/* Full Name */}
-              <div>
-                <label htmlFor="fullName" className="block text-xs font-bold text-[#11152F] uppercase tracking-wider mb-2">
-                  Full Name <span className="text-red-500">*</span>
-                </label>
+                {/* Compact Submission Summary */}
+                <div className="w-full max-w-sm bg-[#F5F8FB] border border-[rgba(16,24,32,0.12)] rounded-lg p-3.5 text-left text-xs mb-6">
+                  <div className="flex justify-between py-1 border-b border-slate-200/60">
+                    <span className="text-slate-500">Project:</span>
+                    <span className="font-semibold text-[#101820]">{formData.projectType}</span>
+                  </div>
+                  <div className="flex justify-between py-1 border-b border-slate-200/60">
+                    <span className="text-slate-500">Contact:</span>
+                    <span className="font-semibold text-[#101820]">{formData.email}</span>
+                  </div>
+                  <div className="pt-1.5 text-slate-600 italic line-clamp-2">
+                    &ldquo;{formData.message}&rdquo;
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={resetForm}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-[rgba(16,24,32,0.18)] text-xs sm:text-sm font-semibold text-[#101820] hover:bg-slate-50 transition-colors"
+                >
+                  <span>Send Another Message</span>
+                </button>
+              </div>
+            ) : (
+              /* Active Multi-Step Form */
+              <form onSubmit={handleSubmit} className="flex flex-col justify-between h-full">
+                {/* Honeypot field for spam protection */}
                 <input
                   type="text"
-                  id="fullName"
-                  required
-                  placeholder="e.g. John Doe"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full px-4 py-3 rounded-2xl bg-[#FAFAFF] border border-[#E9E7F5] text-sm text-[#11152F] focus:outline-none focus:border-[#6847E8] focus:ring-2 focus:ring-[#6847E8]/20 transition-all placeholder:text-[#8E93AB]"
+                  name="_honey"
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
                 />
-              </div>
 
-              {/* Email Address */}
-              <div>
-                <label htmlFor="email" className="block text-xs font-bold text-[#11152F] uppercase tracking-wider mb-2">
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  placeholder="e.g. john@example.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-2xl bg-[#FAFAFF] border border-[#E9E7F5] text-sm text-[#11152F] focus:outline-none focus:border-[#6847E8] focus:ring-2 focus:ring-[#6847E8]/20 transition-all placeholder:text-[#8E93AB]"
-                />
-              </div>
-            </div>
+                {/* Top Progress Indicator */}
+                <div>
+                  <div className="flex items-center justify-between text-xs mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono font-bold text-[#004275] tracking-wider uppercase">
+                        Step {currentStep} of 4
+                      </span>
+                      <span className="text-slate-300">•</span>
+                      <span className="font-medium text-slate-600">
+                        {stepLabels[currentStep - 1]}
+                      </span>
+                    </div>
+                    <span className="font-mono text-slate-400 text-[11px]">
+                      {Math.round(progressPercentage)}%
+                    </span>
+                  </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {/* Project Type */}
-              <div>
-                <label htmlFor="projectType" className="block text-xs font-bold text-[#11152F] uppercase tracking-wider mb-2">
-                  Project Type
-                </label>
-                <select
-                  id="projectType"
-                  value={formData.projectType}
-                  onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full px-4 py-3 rounded-2xl bg-[#FAFAFF] border border-[#E9E7F5] text-sm text-[#11152F] focus:outline-none focus:border-[#6847E8] focus:ring-2 focus:ring-[#6847E8]/20 transition-all"
-                >
-                  <option value="WordPress Website">WordPress Website Development</option>
-                  <option value="Custom Web Application">Custom Web Application</option>
-                  <option value="AI-Powered Solution">AI-Powered Solution</option>
-                  <option value="SaaS Platform">Custom SaaS Platform</option>
-                  <option value="eCommerce Store">eCommerce Store</option>
-                  <option value="API & Automation">API Integration &amp; Automation</option>
-                  <option value="Other">Other Project</option>
-                </select>
-              </div>
+                  {/* Thin Animated Progress Bar */}
+                  <div className="h-1 w-full bg-slate-100 rounded-full overflow-hidden mb-6">
+                    <div
+                      className="h-full bg-[#004275] transition-all duration-300 ease-out"
+                      style={{ width: `${progressPercentage}%` }}
+                    />
+                  </div>
+                </div>
 
-              {/* Budget Range */}
-              <div>
-                <label htmlFor="budgetRange" className="block text-xs font-bold text-[#11152F] uppercase tracking-wider mb-2">
-                  Budget Range
-                </label>
-                <select
-                  id="budgetRange"
-                  value={formData.budgetRange}
-                  onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                  className="w-full px-4 py-3 rounded-2xl bg-[#FAFAFF] border border-[#E9E7F5] text-sm text-[#11152F] focus:outline-none focus:border-[#6847E8] focus:ring-2 focus:ring-[#6847E8]/20 transition-all"
-                >
-                  <option value="< $500">&lt; $500</option>
-                  <option value="$500 - $1,500">$500 - $1,500</option>
-                  <option value="$1,500 - $3,000">$1,500 - $3,000</option>
-                  <option value="$3,000 - $5,000">$3,000 - $5,000</option>
-                  <option value="$5,000+">$5,000+</option>
-                </select>
-              </div>
-            </div>
+                {/* Step Content Area */}
+                <div className="min-h-[200px] flex flex-col justify-center py-2">
+                  {/* =================================================== */}
+                  {/* STEP 1: Project Type Selection                      */}
+                  {/* =================================================== */}
+                  {currentStep === 1 && (
+                    <div className="animate-in fade-in duration-200">
+                      <label className="block text-base sm:text-lg font-bold text-[#101820] tracking-tight mb-1">
+                        What would you like to build?
+                      </label>
+                      <p className="text-xs text-[#475569] mb-4">
+                        Select the primary scope for your upcoming project.
+                      </p>
 
-            {/* Project Details */}
-            <div>
-              <label htmlFor="message" className="block text-xs font-bold text-[#11152F] uppercase tracking-wider mb-2">
-                Project Details <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                required
-                rows={4}
-                placeholder="Tell me about your project, goals, key requirements, and timeline..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-2xl bg-[#FAFAFF] border border-[#E9E7F5] text-sm text-[#11152F] focus:outline-none focus:border-[#6847E8] focus:ring-2 focus:ring-[#6847E8]/20 transition-all placeholder:text-[#8E93AB] resize-none"
-              />
-            </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                        {projectTypes.map((type) => {
+                          const isSelected = formData.projectType === type;
+                          return (
+                            <button
+                              key={type}
+                              type="button"
+                              onClick={() => {
+                                setFormData((prev) => ({ ...prev, projectType: type }));
+                                setStepError("");
+                              }}
+                              className={`p-3 text-left rounded-lg text-xs font-semibold transition-all border ${
+                                isSelected
+                                  ? "bg-[#004275] text-white border-[#004275] shadow-xs scale-[1.01]"
+                                  : "bg-[#F5F8FB] text-[#101820] border-[rgba(16,24,32,0.12)] hover:border-[#004275]/40 hover:bg-slate-100"
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span className="leading-snug">{type}</span>
+                                {isSelected && <Check className="w-3.5 h-3.5 text-white shrink-0 ml-1" />}
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
 
-            {/* Validation Feedback */}
-            {formStatus === "error" && (
-              <div className="flex items-center gap-2 p-3.5 rounded-2xl bg-red-50 border border-red-200 text-xs text-red-600 font-medium">
-                <AlertCircle className="w-4 h-4 shrink-0" />
-                <span>{statusMessage}</span>
-              </div>
+                  {/* =================================================== */}
+                  {/* STEP 2: Full Name Input                             */}
+                  {/* =================================================== */}
+                  {currentStep === 2 && (
+                    <div className="animate-in fade-in duration-200">
+                      <label
+                        htmlFor="fullName"
+                        className="block text-base sm:text-lg font-bold text-[#101820] tracking-tight mb-1"
+                      >
+                        What&apos;s your name?
+                      </label>
+                      <p className="text-xs text-[#475569] mb-4">
+                        Please enter your personal or company name.
+                      </p>
+
+                      <input
+                        ref={nameInputRef}
+                        id="fullName"
+                        type="text"
+                        value={formData.fullName}
+                        onChange={(e) => {
+                          setFormData((prev) => ({ ...prev, fullName: e.target.value }));
+                          if (stepError) setStepError("");
+                        }}
+                        onKeyDown={handleKeyDown}
+                        placeholder="e.g. Alex Morgan"
+                        className="w-full px-4 py-3 rounded-lg border border-[rgba(16,24,32,0.18)] bg-[#F5F8FB] text-[#101820] text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#004275] focus:border-transparent transition-all shadow-2xs"
+                      />
+                    </div>
+                  )}
+
+                  {/* =================================================== */}
+                  {/* STEP 3: Email Input                                 */}
+                  {/* =================================================== */}
+                  {currentStep === 3 && (
+                    <div className="animate-in fade-in duration-200">
+                      <label
+                        htmlFor="email"
+                        className="block text-base sm:text-lg font-bold text-[#101820] tracking-tight mb-1"
+                      >
+                        Where can I reach you?
+                      </label>
+                      <p className="text-xs text-[#475569] mb-4">
+                        I will send the technical proposal and reply to this email address.
+                      </p>
+
+                      <input
+                        ref={emailInputRef}
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => {
+                          setFormData((prev) => ({ ...prev, email: e.target.value }));
+                          if (stepError) setStepError("");
+                        }}
+                        onKeyDown={handleKeyDown}
+                        placeholder="e.g. alex@company.com"
+                        className="w-full px-4 py-3 rounded-lg border border-[rgba(16,24,32,0.18)] bg-[#F5F8FB] text-[#101820] text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#004275] focus:border-transparent transition-all shadow-2xs"
+                      />
+                    </div>
+                  )}
+
+                  {/* =================================================== */}
+                  {/* STEP 4: Project Scope & Review                      */}
+                  {/* =================================================== */}
+                  {currentStep === 4 && (
+                    <div className="animate-in fade-in duration-200">
+                      {/* Compact Summary Review Pills */}
+                      <div className="flex flex-wrap items-center gap-1.5 mb-3.5">
+                        <button
+                          type="button"
+                          onClick={() => setCurrentStep(1)}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#004275]/10 text-[#004275] hover:bg-[#004275]/20 text-[11px] font-semibold transition-colors"
+                          title="Click to change project type"
+                        >
+                          <span>{formData.projectType}</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setCurrentStep(2)}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] font-semibold transition-colors truncate max-w-[140px]"
+                          title="Click to edit name"
+                        >
+                          <span>{formData.fullName || "Name"}</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setCurrentStep(3)}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200 text-[11px] font-semibold transition-colors truncate max-w-[160px]"
+                          title="Click to edit email"
+                        >
+                          <span>{formData.email || "Email"}</span>
+                        </button>
+                      </div>
+
+                      <label
+                        htmlFor="message"
+                        className="block text-base sm:text-lg font-bold text-[#101820] tracking-tight mb-1"
+                      >
+                        Briefly describe your project, goals, or timeline
+                      </label>
+                      <p className="text-xs text-[#475569] mb-3">
+                        Share any technical requirements, design links, or deadlines.
+                      </p>
+
+                      <textarea
+                        ref={messageInputRef}
+                        id="message"
+                        rows={3}
+                        value={formData.message}
+                        onChange={(e) => {
+                          setFormData((prev) => ({ ...prev, message: e.target.value }));
+                          if (stepError) setStepError("");
+                        }}
+                        placeholder="Tell me about your project scope, target timeline, or existing website URL..."
+                        className="w-full px-4 py-3 rounded-lg border border-[rgba(16,24,32,0.18)] bg-[#F5F8FB] text-[#101820] text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#004275] focus:border-transparent transition-all shadow-2xs resize-none"
+                      />
+                    </div>
+                  )}
+
+                  {/* Inline Step Validation Error */}
+                  {stepError && (
+                    <div className="flex items-center gap-1.5 text-xs text-rose-600 font-medium mt-2 animate-in fade-in">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{stepError}</span>
+                    </div>
+                  )}
+
+                  {/* Fallback Submission Error Banner */}
+                  {submitError && (
+                    <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-xs text-rose-700 mt-2">
+                      <p className="font-semibold mb-1">{submitError}</p>
+                      <a
+                        href={`mailto:juelrahman09@gmail.com?subject=Project%20Inquiry%20from%20juelrahman.me&body=Name:%20${encodeURIComponent(
+                          formData.fullName
+                        )}%0AEmail:%20${encodeURIComponent(formData.email)}%0AProject:%20${encodeURIComponent(
+                          formData.projectType
+                        )}%0A%0A${encodeURIComponent(formData.message)}`}
+                        className="underline font-bold text-rose-800 hover:text-rose-900 inline-flex items-center gap-1"
+                      >
+                        <span>Click to send via default email client &rarr;</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                {/* Bottom Navigation Controls */}
+                <div className="flex items-center justify-between pt-5 mt-4 border-t border-slate-100">
+                  {currentStep > 1 ? (
+                    <button
+                      type="button"
+                      onClick={handleBack}
+                      disabled={isSubmitting}
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-[#101820] px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004275]"
+                    >
+                      <ArrowLeft className="w-4 h-4" />
+                      <span>Back</span>
+                    </button>
+                  ) : (
+                    <div />
+                  )}
+
+                  {currentStep < 4 ? (
+                    <button
+                      type="button"
+                      onClick={handleNext}
+                      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-[#004275] text-white text-xs sm:text-sm font-semibold hover:bg-[#003157] transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004275]"
+                    >
+                      <span>Next</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-[#004275] text-white text-xs sm:text-sm font-semibold hover:bg-[#003157] disabled:opacity-60 transition-all shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004275]"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>Sending Inquiry...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Submit Inquiry</span>
+                          <Send className="w-4 h-4" />
+                        </>
+                      )}
+                    </button>
+                  )}
+                </div>
+              </form>
             )}
-
-            {formStatus === "success" && (
-              <div className="flex items-center gap-2 p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-700 font-medium">
-                <CheckCircle2 className="w-4 h-4 shrink-0" />
-                <span>{statusMessage}</span>
-              </div>
-            )}
-
-            {/* Submit Button */}
-            <div className="text-center pt-2">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white bg-[#004275] hover:bg-[#003157] shadow-xs hover:shadow transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004275] focus-visible:ring-offset-2"
-              >
-                <Send className="w-4 h-4" />
-                <span>{isSubmitting ? "Validating..." : "Submit Inquiry"}</span>
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>

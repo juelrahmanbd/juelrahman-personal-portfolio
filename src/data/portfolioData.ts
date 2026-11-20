@@ -93,8 +93,11 @@ export const siteConfig = {
     ],
   },
   contact: {
-    email: "contact@juelrahman.dev",
-    whatsapp: "+880 18-XXXXXXX",
+    primaryEmail: "hellow@juelrahman.com",
+    inquiryEmail: "juelrahman09@gmail.com",
+    email: "juelrahman09@gmail.com",
+    phone: "01304555973",
+    whatsapp: "+8801304555973",
     location: "Bangladesh",
     github: "https://github.com/juelrahmanbd",
     linkedin: "https://linkedin.com/in/juelrahmanbd",
