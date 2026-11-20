@@ -52,38 +52,69 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* Skills Categorized Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {skillCategories.map((cat, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-3xl p-5 sm:p-6 border border-[#E9E7F5] shadow-xs hover:shadow-card hover:border-[#D4CFF2] transition-all duration-300 flex flex-col justify-between"
-            >
-              <div>
-                {/* Category Header Badge */}
-                <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-[#E9E7F5]">
-                  <div className="w-8 h-8 rounded-xl bg-[#F1EDFF] flex items-center justify-center shrink-0">
-                    {getCategoryIcon(cat.iconName)}
+        {/* Skills Categorized Grid (Matches Reference Image 4 + 3 centered layout) */}
+        <div className="max-w-6xl mx-auto space-y-4">
+          {/* Row 1: 4 Category Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {skillCategories.slice(0, 4).map((cat, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-3xl p-5 border border-[#E9E7F5] shadow-xs hover:shadow-card hover:border-[#D4CFF2] transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-[#E9E7F5]">
+                    <div className="w-8 h-8 rounded-xl bg-[#F1EDFF] flex items-center justify-center shrink-0">
+                      {getCategoryIcon(cat.iconName)}
+                    </div>
+                    <h3 className="text-sm font-bold text-[#11152F] tracking-tight">
+                      {cat.badgeLabel}
+                    </h3>
                   </div>
-                  <h3 className="text-sm font-bold text-[#11152F] tracking-tight">
-                    {cat.badgeLabel}
-                  </h3>
-                </div>
-
-                {/* Skill Pills */}
-                <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill, sIdx) => (
-                    <span
-                      key={sIdx}
-                      className="px-3 py-1.5 rounded-xl bg-[#FAFAFF] border border-[#E9E7F5] text-xs font-medium text-[#11152F] hover:bg-[#F1EDFF] hover:border-[#6847E8]/30 transition-colors select-none"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  <div className="flex flex-wrap gap-1.5">
+                    {cat.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="px-2.5 py-1 rounded-xl bg-[#FAFAFF] border border-[#E9E7F5] text-xs font-medium text-[#11152F] hover:bg-[#F1EDFF] hover:border-[#6847E8]/30 transition-colors select-none"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Row 2: 3 Category Cards Centered */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {skillCategories.slice(4).map((cat, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-3xl p-5 border border-[#E9E7F5] shadow-xs hover:shadow-card hover:border-[#D4CFF2] transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-[#E9E7F5]">
+                    <div className="w-8 h-8 rounded-xl bg-[#F1EDFF] flex items-center justify-center shrink-0">
+                      {getCategoryIcon(cat.iconName)}
+                    </div>
+                    <h3 className="text-sm font-bold text-[#11152F] tracking-tight">
+                      {cat.badgeLabel}
+                    </h3>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {cat.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="px-2.5 py-1 rounded-xl bg-[#FAFAFF] border border-[#E9E7F5] text-xs font-medium text-[#11152F] hover:bg-[#F1EDFF] hover:border-[#6847E8]/30 transition-colors select-none"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

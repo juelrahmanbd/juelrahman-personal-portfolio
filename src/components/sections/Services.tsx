@@ -63,35 +63,30 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services Grid (Matches Reference Image Cards) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Services Grid (Matches Reference Image 5x2 Cards) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {servicesList.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#E9E7F5] shadow-xs hover:shadow-card hover:border-[#D4CFF2] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
+              className="bg-white rounded-3xl p-5 sm:p-5.5 border border-[#E9E7F5] shadow-xs hover:shadow-card hover:border-[#D4CFF2] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
             >
               <div>
                 {/* Icon Container with Distinct Theme Gradient */}
                 <div
-                  className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-sm mb-5 group-hover:scale-105 transition-transform duration-200`}
+                  className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-sm mb-4 group-hover:scale-105 transition-transform duration-200`}
                 >
                   {getServiceIcon(service.iconName)}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-base sm:text-lg font-bold text-[#11152F] mb-2.5 tracking-tight group-hover:text-[#6847E8] transition-colors">
+                <h3 className="text-sm sm:text-base font-bold text-[#11152F] mb-2 tracking-tight group-hover:text-[#6847E8] transition-colors leading-snug">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-[#626780] leading-relaxed">
+                <p className="text-xs text-[#626780] leading-relaxed">
                   {service.description}
                 </p>
-              </div>
-
-              {/* Bottom Subtle Indicator */}
-              <div className="mt-5 pt-4 border-t border-[#FAFAFF] flex items-center text-xs font-semibold text-[#6847E8] opacity-0 group-hover:opacity-100 transition-opacity">
-                <span>Learn more &rarr;</span>
               </div>
             </div>
           ))}

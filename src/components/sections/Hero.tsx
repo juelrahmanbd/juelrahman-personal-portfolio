@@ -161,9 +161,9 @@ export default function Hero() {
 
         {/* Hero Central Content */}
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-          {/* Top Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#E9E7F5] shadow-xs mb-6 text-xs sm:text-sm font-medium text-[#11152F]">
-            <span className="text-amber-500">✨</span>
+          {/* Top Pill Badge matching reference image */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FEFCE8] border border-[#FEF08A] shadow-2xs mb-6 text-xs sm:text-sm font-medium text-[#854D0E]">
+            <span className="text-amber-500 text-xs">✦</span>
             <span>Welcome to My Portfolio</span>
           </div>
 
