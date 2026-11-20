@@ -12,6 +12,7 @@ export interface ProjectItem {
   category: "WordPress & Divi 5" | "Business & Agency" | "Booking, eCommerce & Healthcare";
   liveUrl: string;
   displayUrl: string;
+  previewImage: string;
   summary: string;
   description: string;
   highlights: string[];
@@ -25,6 +26,7 @@ export interface ProjectItem {
 export const portfolioProjects: ProjectItem[] = [
   {
     id: "nebulix-staging",
+    previewImage: "/projects/nebulix-staging.webp",
     slug: "nebulix-staging",
     title: "Nebulix — Professional Misting Systems (Staging)",
     shortTitle: "Nebulix Misting",
@@ -86,6 +88,7 @@ export const portfolioProjects: ProjectItem[] = [
   },
   {
     id: "simgolf-scandinavia",
+    previewImage: "/projects/simgolf-scandinavia.webp",
     slug: "simgolf-scandinavia",
     title: "SimGolf Scandinavia — Golf Simulator Systems & Shop",
     shortTitle: "SimGolf Scandinavia",
@@ -147,6 +150,7 @@ export const portfolioProjects: ProjectItem[] = [
   },
   {
     id: "meet-prosperity",
+    previewImage: "/projects/meet-prosperity.webp",
     slug: "meet-prosperity",
     title: "Prosperity — Bookkeeping, Tax & Fractional CFO",
     shortTitle: "Prosperity Accounting",
@@ -207,6 +211,7 @@ export const portfolioProjects: ProjectItem[] = [
   },
   {
     id: "tite-home",
+    previewImage: "/projects/tite-home.webp",
     slug: "tite-home",
     title: "Tite Home — Solar, Airflow & Home Energy Efficiency",
     shortTitle: "Tite Home Energy",
@@ -267,6 +272,7 @@ export const portfolioProjects: ProjectItem[] = [
   },
   {
     id: "web-design-melbourne",
+    previewImage: "/projects/web-design-melbourne.webp",
     slug: "web-design-melbourne",
     title: "Web Design Melbourne — Agency & Lead Generation Site",
     shortTitle: "Web Design Melbourne",
@@ -327,6 +333,7 @@ export const portfolioProjects: ProjectItem[] = [
   },
   {
     id: "hampton-homes-melbourne",
+    previewImage: "/projects/hampton-homes-melbourne.webp",
     slug: "hampton-homes-melbourne",
     title: "Hampton Homes Melbourne — Custom Home Builders",
     shortTitle: "Hampton Homes",
@@ -387,6 +394,7 @@ export const portfolioProjects: ProjectItem[] = [
   },
   {
     id: "hypermed-wellness",
+    previewImage: "/projects/hypermed-wellness.webp",
     slug: "hypermed-wellness",
     title: "HyperMed Wellness — Physician-Guided Recovery Care",
     shortTitle: "HyperMed Wellness",

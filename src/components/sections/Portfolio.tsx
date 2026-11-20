@@ -7,6 +7,9 @@ import { portfolioProjects } from "@/data/projectsData";
 import ProjectPreviewCard from "@/components/portfolio/ProjectPreviewCard";
 
 export default function Portfolio() {
+  // Enforce max 9 items on the homepage portfolio grid
+  const homepageProjects = portfolioProjects.slice(0, 9);
+
   return (
     <section
       id="portfolio"
@@ -30,22 +33,22 @@ export default function Portfolio() {
           </p>
         </div>
 
-        {/* 7-Project Responsive Grid */}
+        {/* Capped at max 9 items on Homepage */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {portfolioProjects.map((project) => (
+          {homepageProjects.map((project) => (
             <div key={project.id} className="h-full">
               <ProjectPreviewCard project={project} />
             </div>
           ))}
         </div>
 
-        {/* Bottom CTA to Full Portfolio */}
+        {/* Bottom CTA to All Portfolio Page */}
         <div className="flex justify-center">
           <Link
             href="/portfolio"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-[#004275] hover:bg-[#003157] shadow-xs hover:shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004275]"
           >
-            <span>View Full Portfolio</span>
+            <span>View All Portfolio</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

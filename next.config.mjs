@@ -5,6 +5,15 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/portfolio/:slug',
+        destination: '/portfolio',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
