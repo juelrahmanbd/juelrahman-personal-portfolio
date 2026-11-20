@@ -5,13 +5,15 @@
 :root {
   /* Editorial Blue & Ice Surface Theme Tokens */
   --bg-surface: #F5F8FB;
+  --bg-section: #F5F8FB;
   --bg-card: #ffffff;
   --text-primary: #101820;
   --text-ink: #000000;
   --accent-primary: #004275;
   --accent-hover: #003157;
+  --accent-fiverr: #1DBF73;
   --border-subtle: rgba(16, 24, 32, 0.14);
-  --border-accent: rgba(0, 66, 117, 0.28);
+  --border-accent: rgba(0, 66, 117, 0.30);
 }
 
 @layer base {
@@ -72,8 +74,21 @@
   animation-play-state: paused;
 }
 
+.animate-marquee-reviews {
+  display: flex;
+  width: max-content;
+  animation: marquee 48s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reviews:hover,
+.animate-marquee-reviews:focus-within {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
+  .animate-marquee,
+  .animate-marquee-reviews {
     animation: none;
     overflow-x: auto;
   }
