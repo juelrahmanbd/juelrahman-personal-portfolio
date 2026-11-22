@@ -17,21 +17,21 @@ export default function Skills() {
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case "Code":
-        return <Code2 className="w-4 h-4 text-[#6847E8]" />;
+        return <Code2 className="w-4 h-4 text-[#004275]" />;
       case "Server":
-        return <Server className="w-4 h-4 text-[#6847E8]" />;
+        return <Server className="w-4 h-4 text-[#004275]" />;
       case "Globe":
-        return <Globe className="w-4 h-4 text-[#6847E8]" />;
+        return <Globe className="w-4 h-4 text-[#004275]" />;
       case "Database":
-        return <Database className="w-4 h-4 text-[#6847E8]" />;
+        return <Database className="w-4 h-4 text-[#004275]" />;
       case "Sparkles":
-        return <Sparkles className="w-4 h-4 text-[#6847E8]" />;
+        return <Sparkles className="w-4 h-4 text-[#004275]" />;
       case "ShieldCheck":
-        return <ShieldCheck className="w-4 h-4 text-[#6847E8]" />;
+        return <ShieldCheck className="w-4 h-4 text-[#004275]" />;
       case "Terminal":
-        return <Terminal className="w-4 h-4 text-[#6847E8]" />;
+        return <Terminal className="w-4 h-4 text-[#004275]" />;
       default:
-        return <Wrench className="w-4 h-4 text-[#6847E8]" />;
+        return <Wrench className="w-4 h-4 text-[#004275]" />;
     }
   };
 

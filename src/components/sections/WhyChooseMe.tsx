@@ -18,23 +18,23 @@ export default function WhyChooseMe() {
   const getItemIcon = (iconName: string) => {
     switch (iconName) {
       case "Lightbulb":
-        return <Lightbulb className="w-5 h-5 text-[#6847E8]" />;
+        return <Lightbulb className="w-5 h-5 text-[#004275]" />;
       case "Target":
-        return <Target className="w-5 h-5 text-[#6847E8]" />;
+        return <Target className="w-5 h-5 text-[#004275]" />;
       case "CheckCircle2":
-        return <CheckCircle2 className="w-5 h-5 text-[#6847E8]" />;
+        return <CheckCircle2 className="w-5 h-5 text-[#004275]" />;
       case "Smartphone":
-        return <Smartphone className="w-5 h-5 text-[#6847E8]" />;
+        return <Smartphone className="w-5 h-5 text-[#004275]" />;
       case "Share2":
-        return <Share2 className="w-5 h-5 text-[#6847E8]" />;
+        return <Share2 className="w-5 h-5 text-[#004275]" />;
       case "Zap":
-        return <Zap className="w-5 h-5 text-[#6847E8]" />;
+        return <Zap className="w-5 h-5 text-[#004275]" />;
       case "FolderKanban":
-        return <FolderKanban className="w-5 h-5 text-[#6847E8]" />;
+        return <FolderKanban className="w-5 h-5 text-[#004275]" />;
       case "MessageSquare":
-        return <MessageSquare className="w-5 h-5 text-[#6847E8]" />;
+        return <MessageSquare className="w-5 h-5 text-[#004275]" />;
       default:
-        return <Star className="w-5 h-5 text-[#6847E8]" />;
+        return <Star className="w-5 h-5 text-[#004275]" />;
     }
   };
 

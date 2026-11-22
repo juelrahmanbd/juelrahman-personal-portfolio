@@ -191,14 +191,14 @@
     border-bottom: 1px solid var(--border-color);
   }
 
-  .gradient-text-purple {
-    background: linear-gradient(135deg, #6847E8 0%, #5234CC 100%);
+  .gradient-text-accent {
+    background: linear-gradient(135deg, #004275 0%, #00223D 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .gradient-bg-purple {
-    background: linear-gradient(135deg, #6847E8 0%, #5234CC 100%);
+  .gradient-bg-accent {
+    background: linear-gradient(135deg, #004275 0%, #00223D 100%);
   }
 }
 

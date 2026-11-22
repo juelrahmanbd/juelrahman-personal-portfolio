@@ -8,15 +8,15 @@ export default function Process() {
   const getStepIcon = (iconName: string) => {
     switch (iconName) {
       case "Search":
-        return <Search className="w-5 h-5 text-[#6847E8]" />;
+        return <Search className="w-5 h-5 text-[#004275]" />;
       case "ListTodo":
-        return <ListTodo className="w-5 h-5 text-[#6847E8]" />;
+        return <ListTodo className="w-5 h-5 text-[#004275]" />;
       case "Code":
-        return <Code className="w-5 h-5 text-[#6847E8]" />;
+        return <Code className="w-5 h-5 text-[#004275]" />;
       case "Sparkles":
-        return <Sparkles className="w-5 h-5 text-[#6847E8]" />;
+        return <Sparkles className="w-5 h-5 text-[#004275]" />;
       default:
-        return <Workflow className="w-5 h-5 text-[#6847E8]" />;
+        return <Workflow className="w-5 h-5 text-[#004275]" />;
     }
   };
 
