@@ -65,7 +65,7 @@ export const siteConfig = {
     badge: "About Me",
     heading: "A Practical, Solution-Focused Developer & AI Engineer",
     paragraphs: [
-      "I'm Md. Juel Rahman, a tech professional with 7–8 years of practical experience across web development and digital solutions. I work at the intersection of full-stack development and AI to build modern, reliable, and business-focused web applications, custom WordPress & Divi 5 sites, API integrations, database-driven systems, eCommerce platforms, and workflow automation.",
+      "I'm Md. Juel Rahman, an AI Engineer and Full-Stack Developer specializing in building modern, reliable, and business-focused web applications, full-spectrum WordPress platforms, API integrations, cloud databases, eCommerce systems, and autonomous workflow automation.",
       "My focus is on delivering practical, scalable, and intelligent digital products that solve real problems, streamline operations, and deliver long-term value—always writing clean, maintainable code and aligning technical architecture with business goals.",
     ],
     approach: [

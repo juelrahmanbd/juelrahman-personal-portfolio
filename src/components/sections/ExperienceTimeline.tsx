@@ -2,10 +2,7 @@
 
 import React from "react";
 import { TechBadge } from "@/components/icons/TechIcons";
-import {
-  Briefcase,
-  CheckCircle2,
-} from "lucide-react";
+import { Briefcase, CheckCircle2 } from "lucide-react";
 
 interface Milestone {
   period: string;
@@ -30,9 +27,9 @@ export default function ExperienceTimeline() {
       highlights: [
         "Engineered autonomous AI tool-calling agents with strict Zod validation",
         "Built production Next.js 15 App Router applications with React 19 RSC",
-        "Consulted for global business founders on AI automation and modern web transitions",
+        "Consulted for global founders on AI automation and modern web transitions",
       ],
-      skills: ["Next.js 15", "React 19", "TypeScript", "OpenAI / Claude API", "Supabase", "pgvector", "Tailwind CSS"],
+      skills: ["Next.js", "React", "TypeScript", "OpenAI", "Claude", "Supabase", "pgvector", "Tailwind CSS"],
       isCurrent: true,
     },
     {
@@ -47,7 +44,7 @@ export default function ExperienceTimeline() {
         "Delivered full-scale platforms including SimGolf Scandinavia and HyperMed Wellness",
         "Managed staging-to-production pipelines with zero regression records",
       ],
-      skills: ["React", "Node.js", "PHP 8.2 OOP", "PostgreSQL", "Docker", "REST APIs", "Vercel / Edge"],
+      skills: ["React", "Node.js", "PHP", "PostgreSQL", "Docker", "REST API", "Vercel"],
     },
     {
       period: "2018 — 2021",
@@ -61,7 +58,7 @@ export default function ExperienceTimeline() {
         "Optimized checkout funnels for international WooCommerce merchants",
         "Engineered high-performance builds passing Google Core Web Vitals on client deployments",
       ],
-      skills: ["WordPress", "Divi 5", "Elementor", "WooCommerce", "PHP", "MySQL", "Technical SEO"],
+      skills: ["WordPress", "Divi 5", "Elementor", "WooCommerce", "PHP", "MySQL", "Rank Math"],
     },
     {
       period: "2016 — 2018",
@@ -71,108 +68,95 @@ export default function ExperienceTimeline() {
       description:
         "Authored interactive, cross-browser responsive web interfaces. Focused on foundational semantic HTML5, CSS3 layout systems, JavaScript DOM manipulation, and relational database schema modeling.",
       highlights: [
-        "Built 50+ bespoke client websites with mobile-first responsiveness",
+        "Delivered bespoke client web solutions with mobile-first responsiveness",
         "Engineered interactive UI widgets and form validation flows",
         "Maintained strict version control with Git and collaborative developer workflows",
       ],
-      skills: ["JavaScript (ES6+)", "HTML5", "CSS3 / Sass", "Responsive UI", "Git", "MySQL"],
+      skills: ["JavaScript", "HTML5", "CSS3", "Git", "MySQL"],
     },
   ];
 
   return (
     <section
       id="experience"
-      className="py-20 md:py-28 bg-[#F5F8FB] border-b border-[rgba(16,24,32,0.1)] relative overflow-hidden"
+      className="py-24 md:py-32 bg-[#07090E] border-b border-white/[0.08] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(16,24,32,0.14)] text-xs font-semibold text-[#004275] shadow-xs mb-4">
-            <Briefcase className="w-3.5 h-3.5 text-[#004275]" />
-            <span className="tracking-wider uppercase">CAREER TRAJECTORY</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-semibold text-cyan-400 shadow-xs mb-4">
+            <Briefcase className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="tracking-widest uppercase font-mono font-bold">CAREER TRAJECTORY</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#101820] tracking-tight mb-3">
-            7–8 Years of Practical Industry Experience
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+            Engineering Milestones &amp;{" "}
+            <span className="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+              Career Trajectory
+            </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#101820]/75 leading-relaxed">
-            A chronological track record of shipping software, leading engineering architectures, and solving real-world business challenges.
+          <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+            A chronological record of shipping production software, leading engineering architectures, and solving real-world business challenges.
           </p>
         </div>
 
-        {/* Vertical Timeline Container (Inspired by 21st.dev timeline-02 [id: 28334]) */}
-        <div className="max-w-4xl mx-auto relative">
-          {/* Vertical Timeline Connecting Line */}
-          <div
-            className="absolute left-4 sm:left-8 top-6 bottom-6 w-0.5 bg-[rgba(16,24,32,0.14)]"
-            aria-hidden="true"
-          />
-
-          <div className="space-y-8 sm:space-y-12">
-            {milestones.map((item, idx) => (
-              <div key={idx} className="relative pl-12 sm:pl-20 group">
-                {/* Timeline Dot Marker */}
-                <div
-                  className={`absolute left-2 sm:left-6 -translate-x-1/2 top-1.5 w-5 h-5 rounded-full border-4 ${
-                    item.isCurrent
-                      ? "border-emerald-500 bg-white shadow-xs"
-                      : "border-[#004275] bg-white"
-                  } transition-transform duration-200 group-hover:scale-125 z-10`}
-                />
-
-                {/* Card Container */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[rgba(16,24,32,0.14)] shadow-xs hover:border-[#004275]/50 hover:shadow-md transition-all duration-300">
-                  {/* Card Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-4 border-b border-[rgba(16,24,32,0.08)]">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-mono font-bold text-[#004275] bg-[#004275]/10 px-2.5 py-0.5 rounded-md">
-                          {item.period}
-                        </span>
-                        {item.isCurrent && (
-                          <span className="text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
-                            Current Role
-                          </span>
-                        )}
-                      </div>
-                      <h3 className="text-xl font-bold text-[#101820] tracking-tight">
-                        {item.role}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#101820]/70 font-medium">
-                        {item.company} &bull; {item.location}
-                      </p>
-                    </div>
+        {/* Timeline Items */}
+        <div className="space-y-6 max-w-4xl mx-auto">
+          {milestones.map((milestone, idx) => (
+            <div
+              key={idx}
+              className="glass-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-6 md:gap-8 group hover:border-cyan-400/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition-all duration-300"
+            >
+              {/* Left Column: Period & Location */}
+              <div className="md:w-1/3 flex flex-col justify-between shrink-0 border-b md:border-b-0 md:border-r border-white/[0.08] pb-4 md:pb-0 md:pr-6">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs font-mono font-bold text-cyan-400 bg-cyan-950/60 border border-cyan-800/40 px-2.5 py-1 rounded-md">
+                      {milestone.period}
+                    </span>
+                    {milestone.isCurrent && (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        PRESENT
+                      </span>
+                    )}
                   </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                    {milestone.role}
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    {milestone.company}
+                  </p>
+                </div>
+                <div className="text-[11px] font-mono text-slate-500 mt-4">
+                  {milestone.location}
+                </div>
+              </div>
 
-                  {/* Narrative Description */}
-                  <p className="text-xs sm:text-sm text-[#101820]/80 leading-relaxed mb-5">
-                    {item.description}
+              {/* Right Column: Narrative, Highlights, Skills */}
+              <div className="md:w-2/3 flex flex-col justify-between">
+                <div>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                    {milestone.description}
                   </p>
 
-                  {/* Key Highlights */}
-                  <div className="space-y-2 mb-6">
-                    {item.highlights.map((h, hIdx) => (
-                      <div key={hIdx} className="flex items-start gap-2 text-xs text-[#101820]/85 font-medium">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <div className="space-y-2 mb-6 text-xs text-slate-300">
+                    {milestone.highlights.map((h, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                         <span>{h}</span>
                       </div>
                     ))}
                   </div>
+                </div>
 
-                  {/* Tech Badges with Authentic Brand SVGs */}
-                  <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[rgba(16,24,32,0.08)]">
-                    {item.skills.map((skill, sIdx) => (
-                      <TechBadge
-                        key={sIdx}
-                        name={skill}
-                        className="bg-[#F5F8FB] text-xs py-0.5 px-2"
-                        iconClassName="w-3 h-3"
-                      />
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.06]">
+                  {milestone.skills.map((skill) => (
+                    <TechBadge key={skill} name={skill} label={skill} size={11} className="py-0.5 px-2 text-[10px]" />
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -2,12 +2,12 @@
 
 import React from "react";
 import { TechIcon, TechBadge } from "@/components/icons/TechIcons";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Globe } from "lucide-react";
 
 export default function WordPressSection() {
   const wpBadges = [
     { name: "WordPress", label: "WordPress Core" },
-    { name: "Divi 5", label: "Divi 5 Modular" },
+    { name: "Divi 5", label: "Divi 5 Framework" },
     { name: "Elementor", label: "Elementor" },
     { name: "Elementor Pro", label: "Elementor Pro" },
     { name: "WooCommerce", label: "WooCommerce" },
@@ -18,6 +18,26 @@ export default function WordPressSection() {
     { name: "Google Search Console", label: "Search Console" },
     { name: "Custom Themes", label: "Custom Themes" },
     { name: "Custom Plugins", label: "Custom Plugins" },
+  ];
+
+  // The 16 required service capabilities
+  const servicesList = [
+    { title: "WordPress Website Development", category: "Core", desc: "End-to-end bespoke website architectures tailored to business goals." },
+    { title: "Custom WordPress Development", category: "Core", desc: "Non-templated, tailored development for unique business workflows." },
+    { title: "Divi 5 Architecture", category: "Builders", desc: "Lightweight modular layouts utilizing Divi 5's modern React core." },
+    { title: "Elementor & Elementor Pro", category: "Builders", desc: "Dynamic theme templates, custom loops, and bespoke widget hooks." },
+    { title: "WooCommerce Engineering", category: "eCommerce", desc: "Scalable stores, custom cart logic, and multi-currency checkouts." },
+    { title: "Custom WordPress Themes", category: "Themes", desc: "Bespoke semantic child and parent themes without builder bloat." },
+    { title: "Custom Plugins", category: "Plugins", desc: "Object-oriented plugins extending core functionality and third-party APIs." },
+    { title: "Gutenberg Block Development", category: "Builders", desc: "Native full-site editing and React-based custom editor blocks." },
+    { title: "PHP Development (PHP 8.2+)", category: "Core", desc: "Strict modern object-oriented PHP with clean lifecycle hooks." },
+    { title: "API Integration & Webhooks", category: "Integration", desc: "REST API endpoints, webhook listeners, and CRM synchronization." },
+    { title: "Website Migration & Staging", category: "DevOps", desc: "Zero-downtime database and asset migration to staging/production." },
+    { title: "Enterprise Security", category: "Security", desc: "Database hardening, login firewalls, and vulnerability mitigation." },
+    { title: "Performance Optimization", category: "Performance", desc: "Asset minification, caching strategies, and Core Web Vitals tuning." },
+    { title: "Technical SEO (Rank Math)", category: "SEO", desc: "Structured data schema, canonical setup, and Google Search Console audit." },
+    { title: "eCommerce Customization", category: "eCommerce", desc: "Bespoke product configurators, checkout flows, and payment gateways." },
+    { title: "Maintenance & Support", category: "DevOps", desc: "Core updates, automated backups, and continuous uptime monitoring." },
   ];
 
   const capabilityPillars = [
@@ -55,6 +75,7 @@ export default function WordPressSection() {
       category: "Architecture 03",
       title: "WooCommerce & Custom Checkout Funnels",
       icon1: "WooCommerce",
+      icon2: "WordPress",
       lead: "High-converting online store architectures, bespoke checkout funnels, payment gateway hardening, and automated webhook order synchronization.",
       bullets: [
         "Custom Checkout & Cart Optimization",
@@ -86,168 +107,166 @@ export default function WordPressSection() {
     {
       metric: "< 1.2s",
       label: "Target LCP Standard",
-      detail: "Largest Contentful Paint target on real client builds",
+      detail: "Largest Contentful Paint benchmark on production builds",
     },
     {
-      metric: "0.00",
-      label: "Zero Layout Shift",
-      detail: "Strict CLS prevention via reserved aspect ratios",
+      metric: "< 0.05",
+      label: "Target CLS Standard",
+      detail: "Cumulative Layout Shift prevention via explicit aspect ratios",
+    },
+    {
+      metric: "Strict",
+      label: "Security Hardening",
+      detail: "Sanitized inputs, nonces, and isolated database permissions",
     },
     {
       metric: "100%",
-      label: "Schema Compliance",
-      detail: "Valid JSON-LD schema markup for rich snippets",
-    },
-    {
-      metric: "Zero",
-      label: "Downtime Staging",
-      detail: "Subdomain isolation protocol before live deployment",
+      label: "Responsive Parity",
+      detail: "Pixel-accurate rendering across mobile, tablet, and ultra-wide",
     },
   ];
 
   return (
     <section
       id="wordpress"
-      className="py-20 md:py-28 bg-white border-b border-[rgba(16,24,32,0.1)] relative overflow-hidden"
+      className="py-24 md:py-32 bg-[#090C12] border-b border-white/[0.08] relative overflow-hidden"
     >
+      {/* Background Ambient Spotlights */}
+      <div
+        className="absolute top-1/4 left-1/3 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none -z-10"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-10 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none -z-10"
+        aria-hidden="true"
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header with Correct Positioning */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F8FB] border border-[rgba(16,24,32,0.14)] text-xs font-semibold text-[#004275] shadow-xs mb-4">
-            <TechIcon name="WordPress" className="w-4 h-4" />
-            <span className="tracking-wider uppercase font-mono font-bold">CMS ARCHITECTURE</span>
+        {/* Section Header: Required exact heading and eyebrow */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-semibold text-purple-400 shadow-xs mb-4">
+            <Globe className="w-3.5 h-3.5 text-purple-400" />
+            <span className="tracking-widest uppercase font-mono font-bold">CMS ARCHITECTURE</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#101820] tracking-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4">
             WordPress
           </h2>
 
-          <p className="text-lg sm:text-xl font-bold text-[#004275] tracking-tight mb-4">
+          <p className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-300 mb-6">
             WordPress Development, Architecture &amp; Performance
           </p>
 
-          <p className="text-sm sm:text-base text-[#101820]/80 leading-relaxed max-w-2xl mx-auto">
-            End-to-end WordPress development across the entire ecosystem &mdash; from custom themes and plugins to Divi 5, Elementor, Gutenberg, and WooCommerce. I build maintainable, scalable WordPress solutions, business websites, custom functionality, and optimized eCommerce experiences with a strong focus on performance, security, technical SEO, and clean architecture.
+          {/* Required Exact Copy */}
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+            End-to-end WordPress development across the entire ecosystem — from custom themes and plugins to Divi 5, Elementor, Gutenberg, and WooCommerce. I build maintainable, scalable WordPress solutions, business websites, custom functionality, and optimized eCommerce experiences with a strong focus on performance, security, technical SEO, and clean architecture.
           </p>
         </div>
 
-        {/* Authentic Brand Ecosystem Badges Showcase */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-4xl mx-auto mb-14">
-          {wpBadges.map((badge, idx) => (
+        {/* Authentic Brand SVGs Ribbon */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-5xl mx-auto mb-16">
+          {wpBadges.map((badge) => (
             <TechBadge
-              key={idx}
+              key={badge.name}
               name={badge.name}
               label={badge.label}
-              className="py-1.5 px-3 bg-[#F5F8FB] hover:bg-white hover:border-[#004275]/50 hover:shadow-xs transition-all text-xs"
+              size={15}
+              className="px-3.5 py-2 text-xs bg-white/[0.03] border-white/[0.08] hover:border-purple-400/40 text-slate-300 hover:text-white"
             />
           ))}
         </div>
 
-        {/* 4 Architecture Capability Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-14">
-          {capabilityPillars.map((pillar, idx) => (
+        {/* 4 Core Architectural Capability Pillars */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-16">
+          {capabilityPillars.map((pillar) => (
             <div
-              key={idx}
-              className="bg-[#F5F8FB] rounded-3xl p-6 sm:p-8 border border-[rgba(16,24,32,0.12)] hover:border-[#004275]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              key={pillar.title}
+              className="glass-card rounded-3xl p-7 sm:p-9 flex flex-col justify-between group hover:border-purple-400/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition-all duration-300"
             >
               <div>
-                {/* Card Header with Authentic Brand SVGs */}
-                <div className="flex items-center justify-between pb-4 mb-5 border-b border-[rgba(16,24,32,0.08)]">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-[rgba(16,24,32,0.1)] flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
-                      <TechIcon name={pillar.icon1} className="w-5 h-5" />
-                    </div>
-                    {pillar.icon2 && (
-                      <div className="w-10 h-10 rounded-xl bg-white border border-[rgba(16,24,32,0.1)] flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
-                        <TechIcon name={pillar.icon2} className="w-5 h-5" />
-                      </div>
-                    )}
-                    <div className="ml-1">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#004275] block">
-                        {pillar.category}
-                      </span>
-                      <h3 className="text-base sm:text-lg font-bold text-[#101820] tracking-tight">
-                        {pillar.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <span className="text-[11px] font-mono font-semibold text-[#004275] bg-[#004275]/10 px-2.5 py-1 rounded-md hidden sm:inline-block">
-                    {pillar.tag}
+                <div className="flex items-center justify-between mb-5 pb-4 border-b border-white/[0.08]">
+                  <span className="text-[11px] font-mono font-bold uppercase text-purple-400 tracking-wider">
+                    {pillar.category}
                   </span>
+                  <div className="flex items-center gap-2">
+                    <TechIcon name={pillar.icon1} className="w-5 h-5" />
+                    {pillar.icon2 && <TechIcon name={pillar.icon2} className="w-5 h-5" />}
+                  </div>
                 </div>
 
-                {/* Pillar Description */}
-                <p className="text-xs sm:text-sm text-[#101820]/75 leading-relaxed mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors mb-3">
+                  {pillar.title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
                   {pillar.lead}
                 </p>
 
-                {/* Key Capability Bullets */}
-                <div className="space-y-2 mb-6">
-                  {pillar.bullets.map((bullet, bIdx) => (
-                    <div key={bIdx} className="flex items-start gap-2.5 text-xs text-[#101820]/85 font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="space-y-2.5 mb-6 text-xs text-slate-300">
+                  {pillar.bullets.map((bullet, i) => (
+                    <div key={i} className="flex items-center gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                       <span>{bullet}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Verified Architecture Tag */}
-              <div className="pt-4 border-t border-[rgba(16,24,32,0.08)] flex items-center justify-between text-xs">
-                <span className="font-mono text-[#101820]/60">Standard:</span>
-                <span className="font-mono font-bold text-[#004275]">
-                  Clean &amp; Maintainable Codebase
+              <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+                <span className="text-xs font-mono font-semibold text-purple-400">
+                  {pillar.tag}
                 </span>
+                <span className="text-xs text-slate-400">Production Verified</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Engineering Performance Standards Card */}
-        <div className="bg-[#F5F8FB] rounded-3xl p-6 sm:p-8 border border-[rgba(16,24,32,0.14)]">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6 pb-6 border-b border-[rgba(16,24,32,0.08)]">
-            <div className="max-w-xl">
-              <div className="flex items-center gap-2 mb-2">
-                <TechIcon name="PageSpeed Insights" className="w-4 h-4" />
-                <span className="text-xs font-mono font-bold uppercase text-[#004275] tracking-wider">
-                  Performance &amp; Speed Engineering
-                </span>
-              </div>
-              <h4 className="text-xl sm:text-2xl font-bold text-[#101820] tracking-tight">
-                Engineering Target Standards &amp; Client Deployments
-              </h4>
-              <p className="text-xs sm:text-sm text-[#101820]/75 mt-1 leading-relaxed">
-                Applied to custom builds and speed optimization contracts across European, Scandinavian, and US infrastructure &mdash; prioritizing real user experience and Google Core Web Vitals.
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[rgba(16,24,32,0.1)] text-xs font-mono font-semibold text-[#101820]">
-                <TechIcon name="Rank Math" className="w-3.5 h-3.5" />
-                <span>Rank Math Pro</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[rgba(16,24,32,0.1)] text-xs font-mono font-semibold text-[#101820]">
-                <TechIcon name="Google Search Console" className="w-3.5 h-3.5" />
-                <span>Search Console</span>
-              </div>
-            </div>
+        {/* Full 16-Service Capability Matrix */}
+        <div className="glass-panel rounded-3xl p-8 border border-white/[0.1] shadow-2xl mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+              Full-Spectrum WordPress Service Capabilities
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-400">
+              Divi is one specialized component of my WordPress expertise—spanning engineering, design systems, and operations.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {standards.map((s, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            {servicesList.map((srv, i) => (
               <div
-                key={idx}
-                className="bg-white rounded-2xl p-4 border border-[rgba(16,24,32,0.08)] shadow-2xs text-left"
+                key={i}
+                className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-purple-400/30 hover:bg-white/[0.04] transition-all"
               >
-                <div className="text-xl sm:text-2xl font-black font-mono text-[#004275] mb-1">
-                  {s.metric}
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-xs font-bold text-white block">
+                    {srv.title}
+                  </span>
                 </div>
-                <div className="text-xs font-bold text-[#101820] mb-0.5">{s.label}</div>
-                <div className="text-[11px] text-[#101820]/65 leading-tight">{s.detail}</div>
+                <p className="text-[11px] text-slate-400 leading-relaxed">
+                  {srv.desc}
+                </p>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Verified Technical Standards (No Fabricated Metrics) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {standards.map((std, i) => (
+            <div key={i} className="glass-card rounded-2xl p-5 text-center">
+              <div className="text-2xl sm:text-3xl font-extrabold text-purple-400 font-mono mb-1">
+                {std.metric}
+              </div>
+              <div className="text-xs font-bold text-white mb-1">
+                {std.label}
+              </div>
+              <div className="text-[11px] text-slate-400">
+                {std.detail}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

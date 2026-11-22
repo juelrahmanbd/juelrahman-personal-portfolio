@@ -8,6 +8,7 @@ import {
   ExternalLink,
   CheckCircle2,
   FolderGit2,
+  ArrowUpRight,
 } from "lucide-react";
 
 type FilterCategory = "all" | "WordPress" | "Business & Agency" | "Booking, eCommerce & Healthcare";
@@ -34,21 +35,24 @@ export default function FeaturedProjects() {
   return (
     <section
       id="projects"
-      className="py-20 md:py-28 bg-white border-b border-[rgba(16,24,32,0.1)] relative overflow-hidden"
+      className="py-24 md:py-32 bg-[#090C12] border-b border-white/[0.08] relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F8FB] border border-[rgba(16,24,32,0.14)] text-xs font-semibold text-[#004275] shadow-xs mb-3.5">
-              <FolderGit2 className="w-3.5 h-3.5 text-[#004275]" />
-              <span className="tracking-wider uppercase">FEATURED PROJECTS</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-semibold text-cyan-400 shadow-xs mb-4">
+              <FolderGit2 className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="tracking-widest uppercase font-mono font-bold">FEATURED CASE STUDIES</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#101820] tracking-tight">
-              Production Client Case Studies
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Production Client{" "}
+              <span className="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                Case Studies
+              </span>
             </h2>
-            <p className="mt-2 text-sm sm:text-base text-[#101820]/75 leading-relaxed">
-              Real-world web systems, high-converting platforms, and custom architectures delivered for international clients across Italy, Scandinavia, Australia, and the US.
+            <p className="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed">
+              Real-world software systems, high-converting platforms, and custom architectures engineered for international clients across Italy, Scandinavia, Australia, and the US.
             </p>
           </div>
 
@@ -58,10 +62,10 @@ export default function FeaturedProjects() {
               <button
                 key={cat.value}
                 onClick={() => setActiveCategory(cat.value)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
                   activeCategory === cat.value
-                    ? "bg-[#004275] text-white shadow-xs"
-                    : "bg-[#F5F8FB] text-[#101820]/80 border border-[rgba(16,24,32,0.1)] hover:border-[#004275]/40"
+                    ? "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+                    : "bg-white/[0.03] text-slate-300 border border-white/[0.08] hover:border-cyan-400/40 hover:text-white"
                 }`}
               >
                 {cat.label}
@@ -75,81 +79,78 @@ export default function FeaturedProjects() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group bg-[#F5F8FB] rounded-2xl border border-[rgba(16,24,32,0.14)] hover:border-[#004275]/50 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden"
+              className="group glass-card rounded-3xl overflow-hidden flex flex-col justify-between hover:border-cyan-400/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition-all duration-300"
             >
-              {/* Preview Image Frame */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 border-b border-[rgba(16,24,32,0.1)]">
-                <Image
-                  src={project.previewImage}
-                  alt={project.title}
-                  width={800}
-                  height={500}
-                  unoptimized
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                />
+              {/* Top Section */}
+              <div>
+                {/* Preview Image Frame */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 border-b border-white/[0.08]">
+                  <Image
+                    src={project.previewImage}
+                    alt={project.title}
+                    width={800}
+                    height={500}
+                    unoptimized
+                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
 
-                {/* Subtle Gradient & Category Tag */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#101820]/70 via-transparent to-transparent pointer-events-none" />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D111A] via-transparent to-transparent opacity-80" />
 
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 rounded-md bg-[#101820]/80 backdrop-blur-md border border-white/20 text-[11px] font-mono font-semibold text-white">
+                  {/* Category Pill Over Image */}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#07090E]/85 backdrop-blur-md border border-white/[0.14] text-[11px] font-mono font-medium text-cyan-300">
                     {project.category}
-                  </span>
-                </div>
+                  </div>
 
-                <div className="absolute bottom-3 right-3">
+                  {/* Live Link Button Over Image */}
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/95 text-xs font-semibold text-[#101820] shadow-sm hover:bg-white transition-colors"
+                    className="absolute top-3 right-3 p-2 rounded-full bg-[#07090E]/85 backdrop-blur-md border border-white/[0.14] text-white hover:text-cyan-300 hover:border-cyan-400/50 transition-colors"
+                    aria-label={`Open live site for ${project.title}`}
                   >
-                    <span>Visit Live</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ArrowUpRight className="w-4 h-4" />
                   </a>
                 </div>
-              </div>
 
-              {/* Card Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="text-[11px] font-mono font-bold text-[#004275] uppercase tracking-wider mb-1">
-                    Client: {project.client}
-                  </div>
-                  <h3 className="text-lg font-bold text-[#101820] tracking-tight group-hover:text-[#004275] transition-colors mb-2">
+                {/* Card Content Body */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#101820]/75 line-clamp-3 leading-relaxed mb-4">
-                    {project.summary}
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-5">
+                    {project.description}
                   </p>
 
-                  {/* Highlights Bullets */}
-                  <div className="space-y-1.5 mb-5">
-                    {project.highlights.slice(0, 3).map((h, hIdx) => (
-                      <div key={hIdx} className="flex items-center gap-2 text-xs text-[#101820]/80 font-medium">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                        <span className="line-clamp-1">{h}</span>
+                  {/* Highlights */}
+                  <div className="space-y-1.5 mb-6 text-xs text-slate-300">
+                    {project.highlights.slice(0, 3).map((h, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                        <span>{h}</span>
                       </div>
                     ))}
                   </div>
                 </div>
+              </div>
 
-                {/* Tech Badges with Authentic Brand SVGs */}
-                <div className="pt-4 border-t border-[rgba(16,24,32,0.08)] flex flex-wrap gap-1.5">
-                  {project.techStack.slice(0, 4).map((tech, tIdx) => (
-                    <TechBadge
-                      key={tIdx}
-                      name={tech}
-                      className="text-[11px] py-0.5 px-2 bg-white"
-                      iconClassName="w-3 h-3"
-                    />
+              {/* Card Footer with Authentic Tech Badges */}
+              <div className="px-6 pb-6 pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.techStack.slice(0, 3).map((tag) => (
+                    <TechBadge key={tag} name={tag} label={tag} size={12} className="py-0.5 px-2 text-[11px]" />
                   ))}
-                  {project.techStack.length > 4 && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-mono text-[#101820]/60 self-center">
-                      +{project.techStack.length - 4} more
-                    </span>
-                  )}
                 </div>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <span>LIVE</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           ))}

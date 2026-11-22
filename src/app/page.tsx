@@ -8,7 +8,7 @@ import About from "@/components/sections/About";
 import TechnicalExpertise from "@/components/sections/TechnicalExpertise";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import AiFullStack from "@/components/sections/AiFullStack";
-import WordPressDivi from "@/components/sections/WordPressDivi";
+import WordPressSection from "@/components/sections/WordPressDivi";
 import ExperienceTimeline from "@/components/sections/ExperienceTimeline";
 import Process from "@/components/sections/Process";
 import Testimonials from "@/components/sections/Testimonials";
@@ -17,12 +17,17 @@ import Footer from "@/components/layout/Footer";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#F5F8FB] text-[#101820] flex flex-col selection:bg-[#004275]/15 selection:text-[#101820]">
-      {/* Sticky Header Navigation */}
+    <div className="min-h-screen bg-[#07090E] text-slate-100 flex flex-col relative overflow-x-hidden selection:bg-blue-500/25 selection:text-white">
+      {/* Background Architectural Grid & Subtle Spotlights */}
+      <div className="fixed inset-0 bg-grid-pattern opacity-40 pointer-events-none z-0" aria-hidden="true" />
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-blue-600/10 via-cyan-500/5 to-transparent blur-3xl pointer-events-none -z-10" aria-hidden="true" />
+      <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-emerald-500/5 blur-[120px] pointer-events-none -z-10" aria-hidden="true" />
+
+      {/* Floating Architectural Header Navigation */}
       <Navbar />
 
       {/* Main Page Sections */}
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full relative z-10">
         {/* 1. Hero with Real Photo (Photo 1) */}
         <Hero />
 
@@ -42,7 +47,7 @@ export default function HomePage() {
         <AiFullStack />
 
         {/* 6. WordPress Development, Architecture & Performance Showcase */}
-        <WordPressDivi />
+        <WordPressSection />
 
         {/* 7. Experience & Milestones Timeline */}
         <ExperienceTimeline />
@@ -53,7 +58,7 @@ export default function HomePage() {
         {/* Client Testimonials Proof */}
         <Testimonials />
 
-        {/* 8. Contact & Consultation with Real Photo (Photo 3) */}
+        {/* 9. Contact & Consultation with Real Photo (Photo 3) */}
         <Contact />
       </main>
 

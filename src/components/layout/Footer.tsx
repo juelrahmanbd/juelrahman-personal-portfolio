@@ -273,7 +273,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#101820] text-white pt-16 pb-12 border-t border-white/[0.12] relative overflow-hidden select-none">
+    <footer className="bg-[#05070B] text-white pt-16 pb-12 border-t border-white/[0.08] relative overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ========================================================= */}
         {/* Main 4-Column Grid with Wider, Balanced Gaps (4+2+3+3 = 12)*/}
