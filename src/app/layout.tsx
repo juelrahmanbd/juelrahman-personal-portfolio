@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#07090E",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
 };
@@ -70,9 +70,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${plusJakartaSans.variable} ${playfairDisplay.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      className={`light ${plusJakartaSans.variable} ${playfairDisplay.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
-      <body className="bg-[#07090E] text-slate-100 antialiased min-h-screen selection:bg-blue-500/25 selection:text-white">
+      <body className="bg-[#F8FAFC] text-slate-900 antialiased min-h-screen selection:bg-blue-600/15 selection:text-slate-900">
         {children}
       </body>
     </html>

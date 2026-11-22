@@ -15,31 +15,31 @@ export default function TechSlider() {
   return (
     <section
       id="technologies"
-      className="py-12 md:py-16 bg-[#07090E] border-b border-white/[0.08] overflow-hidden select-none w-full relative"
+      className="py-12 md:py-16 bg-[#F8FAFC] border-b border-slate-200/80 overflow-hidden select-none w-full relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header divider */}
         <div className="flex items-center justify-center gap-4 mb-8">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent" aria-hidden="true" />
           <div className="flex items-center gap-2 px-3 text-center shrink-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" aria-hidden="true" />
-            <h2 className="text-xs sm:text-sm font-mono font-semibold uppercase tracking-[0.2em] text-slate-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" aria-hidden="true" />
+            <h2 className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] text-slate-500">
               Battle-Tested Technology Stack
             </h2>
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" aria-hidden="true" />
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-pulse" aria-hidden="true" />
           </div>
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true" />
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-200 to-transparent" aria-hidden="true" />
         </div>
 
         {/* Dual-Row Infinite Slider Track with Edge Fade Masks */}
         <div className="relative w-full overflow-hidden py-2">
           {/* Edge Fade Masks */}
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#07090E] via-[#07090E]/90 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#F8FAFC] via-[#F8FAFC]/90 to-transparent z-10"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#07090E] via-[#07090E]/90 to-transparent z-10"
+            className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#F8FAFC] via-[#F8FAFC]/90 to-transparent z-10"
             aria-hidden="true"
           />
 
@@ -53,7 +53,7 @@ export default function TechSlider() {
                 {row1Items.map((tech, idx) => (
                   <div
                     key={`row1-${tech.name}-${idx}`}
-                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:border-cyan-400/40 hover:bg-white/[0.06] hover:shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:-translate-y-0.5 transition-all duration-200 shrink-0 select-none group"
+                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-slate-200/90 text-xs sm:text-sm font-medium text-slate-800 hover:text-blue-600 hover:border-blue-500 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 shrink-0 select-none shadow-2xs group"
                   >
                     <span className="shrink-0 flex items-center justify-center">
                       <TechIcon
@@ -78,7 +78,7 @@ export default function TechSlider() {
                 {row2Items.map((tech, idx) => (
                   <div
                     key={`row2-${tech.name}-${idx}`}
-                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:border-blue-500/40 hover:bg-white/[0.06] hover:shadow-[0_0_15px_rgba(37,99,235,0.2)] hover:-translate-y-0.5 transition-all duration-200 shrink-0 select-none group"
+                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-slate-200/90 text-xs sm:text-sm font-medium text-slate-800 hover:text-blue-600 hover:border-blue-500 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 shrink-0 select-none shadow-2xs group"
                   >
                     <span className="shrink-0 flex items-center justify-center">
                       <TechIcon

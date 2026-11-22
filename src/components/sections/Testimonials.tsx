@@ -124,7 +124,7 @@ export default function Testimonials() {
   const renderCard = (card: TestimonialCardData, idxKey: string) => (
     <div
       key={idxKey}
-      className="glass-card rounded-2xl p-6 w-[320px] sm:w-[380px] shrink-0 flex flex-col justify-between hover:border-cyan-400/40 transition-all duration-300"
+      className="bg-white rounded-2xl p-6 w-[320px] sm:w-[380px] shrink-0 flex flex-col justify-between border border-slate-200/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:border-blue-500/50 hover:shadow-[0_10px_30px_-5px_rgba(37,99,235,0.08)] transition-all duration-300"
     >
       <div>
         {/* Rating Stars */}
@@ -135,14 +135,14 @@ export default function Testimonials() {
         </div>
 
         {/* Quote */}
-        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 italic">
+        <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-4 italic">
           &ldquo;{card.quote}&rdquo;
         </p>
       </div>
 
       {/* Author Footer */}
-      <div className="flex items-center gap-3 pt-3 border-t border-white/[0.06]">
-        <div className="w-9 h-9 rounded-full overflow-hidden bg-slate-800 border border-white/10 shrink-0 flex items-center justify-center font-bold text-xs text-white">
+      <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
+        <div className="w-9 h-9 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center font-bold text-xs text-slate-800">
           {card.avatarSrc ? (
             <Image
               src={card.avatarSrc}
@@ -157,10 +157,10 @@ export default function Testimonials() {
           )}
         </div>
         <div className="flex flex-col">
-          <span className="text-xs font-bold text-white tracking-tight">
+          <span className="text-xs font-bold text-slate-900 tracking-tight">
             {card.name}
           </span>
-          <span className="text-[11px] text-slate-400 flex items-center gap-1">
+          <span className="text-[11px] text-slate-500 flex items-center gap-1">
             <span>{getFlagEmoji(card.flag)}</span>
             <span>{card.country}</span>
           </span>
@@ -172,23 +172,23 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-24 md:py-32 bg-[#07090E] border-b border-white/[0.08] relative overflow-hidden select-none"
+      className="py-24 md:py-32 bg-[#F8FAFC] border-b border-slate-200/80 relative overflow-hidden select-none"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-semibold text-emerald-400 shadow-xs mb-4">
-              <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-semibold text-emerald-700 shadow-xs mb-4">
+              <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
               <span className="tracking-widest uppercase font-mono font-bold">CLIENT TESTIMONIALS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
               Verified Client{" "}
-              <span className="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-300">
+              <span className="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600">
                 Endorsements
               </span>
             </h2>
-            <p className="mt-2 text-sm sm:text-base text-slate-400 leading-relaxed max-w-xl">
+            <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
               Authentic reviews from founders, marketing directors, and business owners across the US, Germany, Italy, Sweden, and Australia.
             </p>
           </div>
@@ -196,16 +196,16 @@ export default function Testimonials() {
           {/* Play/Pause Button */}
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="self-start sm:self-auto inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-medium text-slate-300 bg-white/[0.03] border border-white/[0.08] hover:border-cyan-400/40 hover:text-white transition-colors cursor-pointer"
+            className="self-start sm:self-auto inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-medium text-slate-700 bg-white border border-slate-200 shadow-xs hover:border-blue-500 hover:text-blue-600 transition-colors cursor-pointer"
           >
             {isPlaying ? (
               <>
-                <Pause className="w-3.5 h-3.5 text-cyan-400" />
+                <Pause className="w-3.5 h-3.5 text-blue-600" />
                 <span>Pause Stream</span>
               </>
             ) : (
               <>
-                <Play className="w-3.5 h-3.5 text-cyan-400" />
+                <Play className="w-3.5 h-3.5 text-blue-600" />
                 <span>Play Stream</span>
               </>
             )}
@@ -215,8 +215,8 @@ export default function Testimonials() {
 
       {/* Infinite Dual-Row Reviews */}
       <div className="space-y-4 overflow-hidden relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#07090E] via-[#07090E]/90 to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#07090E] via-[#07090E]/90 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#F8FAFC] via-[#F8FAFC]/95 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#F8FAFC] via-[#F8FAFC]/95 to-transparent z-10" />
 
         {/* Row 1 */}
         <div className="flex gap-4 animate-marquee-left" style={{ animationPlayState: isPlaying ? "running" : "paused" }}>

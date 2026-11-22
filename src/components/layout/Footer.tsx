@@ -23,7 +23,7 @@ import {
   CloudCog,
 } from "lucide-react";
 
-// Official WordPress SVG in pure white
+// Official WordPress SVG
 function WordPressIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -58,7 +58,7 @@ function CodeWindowIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// Official LinkedIn Icon in pure white
+// Official LinkedIn Icon
 function LinkedInIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -72,7 +72,7 @@ function LinkedInIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// Official Facebook Icon in pure white
+// Official Facebook Icon
 function FacebookIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -86,7 +86,7 @@ function FacebookIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// Official Instagram Icon in pure white
+// Official Instagram Icon
 function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -106,7 +106,7 @@ function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// Official YouTube Icon in pure white
+// Official YouTube Icon
 function YouTubeIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -120,7 +120,7 @@ function YouTubeIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-// Official X (formerly Twitter) Icon in pure white
+// Official X (formerly Twitter) Icon
 function XIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -273,35 +273,35 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#05070B] text-white pt-16 pb-12 border-t border-white/[0.08] relative overflow-hidden select-none">
+    <footer className="bg-white text-slate-900 pt-16 pb-12 border-t border-slate-200/80 relative overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ========================================================= */}
-        {/* Main 4-Column Grid with Wider, Balanced Gaps (4+2+3+3 = 12)*/}
+        {/* Main 4-Column Grid with Balanced Gaps (4+2+3+3 = 12)       */}
         {/* ========================================================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-14 pb-14">
           {/* Column 1 — Brand Identity, Summary & Social Media Row (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-4">
             {/* Architectural "JR" Brand Mark with Corner Brackets */}
-            <figure className="relative w-14 h-14 flex items-center justify-center border border-white">
-              <span className="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-white" />
-              <span className="absolute -top-1 -right-1 w-2 h-2 border-t border-r border-white" />
-              <span className="absolute -bottom-1 -left-1 w-2 h-2 border-b border-l border-white" />
-              <span className="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-white" />
-              <span className="text-white font-bold text-2xl tracking-tight select-none font-sans">
+            <figure className="relative w-14 h-14 flex items-center justify-center border border-slate-900 bg-slate-50">
+              <span className="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-slate-900" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 border-t border-r border-slate-900" />
+              <span className="absolute -bottom-1 -left-1 w-2 h-2 border-b border-l border-slate-900" />
+              <span className="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-slate-900" />
+              <span className="text-slate-900 font-bold text-2xl tracking-tight select-none font-sans">
                 JR
               </span>
             </figure>
 
             <div className="pt-1">
-              <h2 className="text-2xl font-bold text-white tracking-tight">
+              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
                 {siteConfig.name}
               </h2>
-              <p className="text-sm font-semibold text-slate-300 mt-1">
+              <p className="text-sm font-semibold text-slate-600 mt-1">
                 AI Engineer | Full-Stack Developer
               </p>
             </div>
 
-            <p className="text-sm text-[#CBD5E1] leading-relaxed max-w-sm pt-1">
+            <p className="text-sm text-slate-600 leading-relaxed max-w-sm pt-1">
               I build modern websites, web applications, and AI-powered digital
               solutions with a focus on quality, security, performance, and real
               business value.
@@ -309,7 +309,7 @@ export default function Footer() {
 
             {/* Clean Social Media Row */}
             <div className="pt-2">
-              <span className="block text-xs font-bold uppercase tracking-wider text-white mb-2.5">
+              <span className="block text-xs font-bold uppercase tracking-wider text-slate-900 mb-2.5">
                 Follow &amp; Connect
               </span>
               <div className="flex items-center gap-2 flex-wrap">
@@ -321,11 +321,11 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-lg bg-white/5 border border-white/15 hover:border-[#004275] hover:bg-[#004275]/40 flex items-center justify-center text-white transition-all shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      className="w-9 h-9 rounded-lg bg-slate-100 border border-slate-200 hover:border-blue-600 hover:bg-blue-600 flex items-center justify-center text-slate-700 hover:text-white transition-all shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                       aria-label={social.name}
                       title={social.name}
                     >
-                      <Icon className="w-4 h-4 text-white" />
+                      <Icon className="w-4 h-4 transition-colors" />
                     </a>
                   );
                 })}
@@ -335,7 +335,7 @@ export default function Footer() {
 
           {/* Column 2 — Quick Links with Right Arrows (lg:col-span-2) */}
           <div className="lg:col-span-2">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-5">
               Quick Links
             </h3>
             <nav aria-label="Quick Links">
@@ -346,13 +346,13 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="group flex items-center justify-between text-[#CBD5E1] hover:text-white transition-colors py-0.5"
+                        className="group flex items-center justify-between text-slate-600 hover:text-blue-600 transition-colors py-0.5"
                       >
                         <span className="flex items-center gap-2.5">
-                          <Icon className="w-4 h-4 text-white shrink-0" />
+                          <Icon className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors shrink-0" />
                           <span>{item.name}</span>
                         </span>
-                        <ArrowRight className="w-3.5 h-3.5 text-white shrink-0 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 shrink-0 group-hover:translate-x-1 transition-transform" />
                       </a>
                     </li>
                   );
@@ -363,7 +363,7 @@ export default function Footer() {
 
           {/* Column 3 — My Services (lg:col-span-3) */}
           <div className="lg:col-span-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-5">
               My Services
             </h3>
             <ul className="space-y-3.5 text-sm">
@@ -373,9 +373,9 @@ export default function Footer() {
                   <li key={idx}>
                     <a
                       href={item.href}
-                      className="group flex items-center gap-2.5 text-[#CBD5E1] hover:text-white transition-colors py-0.5"
+                      className="group flex items-center gap-2.5 text-slate-600 hover:text-blue-600 transition-colors py-0.5"
                     >
-                      <Icon className="w-4 h-4 text-white shrink-0" />
+                      <Icon className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors shrink-0" />
                       <span className="line-clamp-1">{item.name}</span>
                     </a>
                   </li>
@@ -386,34 +386,34 @@ export default function Footer() {
             <div className="mt-6 pt-1">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-3.5 py-2 border border-white/60 hover:border-white text-xs font-semibold text-white transition-colors rounded-md"
+                className="inline-flex items-center gap-2 px-3.5 py-2 border border-slate-300 hover:border-slate-900 text-xs font-semibold text-slate-800 hover:text-slate-900 bg-white shadow-2xs transition-colors rounded-md"
               >
                 <span>View All Services</span>
-                <ArrowRight className="w-3.5 h-3.5 text-white" />
+                <ArrowRight className="w-3.5 h-3.5 text-slate-600" />
               </Link>
             </div>
           </div>
 
-          {/* Column 4 — Stacked One-Below-Another Contact Info (lg:col-span-3) */}
+          {/* Column 4 — Stacked Direct Contact Info (lg:col-span-3) */}
           <div className="lg:col-span-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-5">
               Direct Contact
             </h3>
 
             <div className="flex flex-col gap-2.5">
               {/* Phone / WhatsApp */}
-              <div className="bg-[#16212c] border border-white/10 rounded-xl p-3 flex items-center justify-between gap-3 hover:border-white/25 transition-all">
+              <div className="bg-[#F8FAFC] border border-slate-200/80 rounded-xl p-3 flex items-center justify-between gap-3 hover:border-blue-400 hover:bg-blue-50/30 transition-all">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-8 h-8 rounded-lg bg-[#004275] border border-white/10 flex items-center justify-center shrink-0 text-white">
-                    <Phone className="w-4 h-4 text-white" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 text-blue-600">
+                    <Phone className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-500">
                       Phone &amp; WhatsApp
                     </span>
                     <a
                       href="tel:+8801304555973"
-                      className="text-xs sm:text-sm font-semibold text-white hover:text-sky-300 transition-colors font-mono truncate block"
+                      className="text-xs sm:text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors font-mono truncate block"
                     >
                       {siteConfig.contact.phone}
                     </a>
@@ -426,7 +426,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Message on WhatsApp"
-                    className="p-1.5 rounded-md bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/30 transition-colors"
+                    className="p-1.5 rounded-md bg-emerald-50 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 transition-colors"
                     title="WhatsApp"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
@@ -435,31 +435,31 @@ export default function Footer() {
                     type="button"
                     onClick={() => handleCopy(siteConfig.contact.phone, "footer-phone")}
                     aria-label="Copy phone number"
-                    className="p-1.5 rounded-md bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                    className="p-1.5 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-600 transition-colors cursor-pointer"
                     title="Copy"
                   >
                     {copiedId === "footer-phone" ? (
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <Check className="w-3.5 h-3.5 text-emerald-600" />
                     ) : (
-                      <Copy className="w-3.5 h-3.5 text-slate-300" />
+                      <Copy className="w-3.5 h-3.5 text-slate-500" />
                     )}
                   </button>
                 </div>
               </div>
 
               {/* Primary Email */}
-              <div className="bg-[#16212c] border border-white/10 rounded-xl p-3 flex items-center justify-between gap-3 hover:border-white/25 transition-all">
+              <div className="bg-[#F8FAFC] border border-slate-200/80 rounded-xl p-3 flex items-center justify-between gap-3 hover:border-blue-400 hover:bg-blue-50/30 transition-all">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-8 h-8 rounded-lg bg-[#004275] border border-white/10 flex items-center justify-center shrink-0 text-white">
-                    <Mail className="w-4 h-4 text-white" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 text-blue-600">
+                    <Mail className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-500">
                       Primary Email
                     </span>
                     <a
                       href={`mailto:${siteConfig.contact.primaryEmail}`}
-                      className="text-xs sm:text-sm font-semibold text-white hover:text-sky-300 transition-colors truncate block"
+                      className="text-xs sm:text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors truncate block"
                     >
                       {siteConfig.contact.primaryEmail}
                     </a>
@@ -472,30 +472,30 @@ export default function Footer() {
                     handleCopy(siteConfig.contact.primaryEmail, "footer-primary-email")
                   }
                   aria-label="Copy primary email"
-                  className="p-1.5 rounded-md bg-white/10 hover:bg-white/20 text-white transition-colors shrink-0 cursor-pointer"
+                  className="p-1.5 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-600 transition-colors shrink-0 cursor-pointer"
                   title="Copy"
                 >
                   {copiedId === "footer-primary-email" ? (
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <Check className="w-3.5 h-3.5 text-emerald-600" />
                   ) : (
-                    <Copy className="w-3.5 h-3.5 text-slate-300" />
+                    <Copy className="w-3.5 h-3.5 text-slate-500" />
                   )}
                 </button>
               </div>
 
               {/* Direct / Backup Email */}
-              <div className="bg-[#16212c] border border-white/10 rounded-xl p-3 flex items-center justify-between gap-3 hover:border-white/25 transition-all">
+              <div className="bg-[#F8FAFC] border border-slate-200/80 rounded-xl p-3 flex items-center justify-between gap-3 hover:border-blue-400 hover:bg-blue-50/30 transition-all">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-8 h-8 rounded-lg bg-[#004275] border border-white/10 flex items-center justify-center shrink-0 text-white">
-                    <Send className="w-4 h-4 text-white" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 text-blue-600">
+                    <Send className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-500">
                       Direct Email
                     </span>
                     <a
                       href={`mailto:${siteConfig.contact.inquiryEmail}`}
-                      className="text-xs sm:text-sm font-semibold text-white hover:text-sky-300 transition-colors truncate block"
+                      className="text-xs sm:text-sm font-semibold text-slate-900 hover:text-blue-600 transition-colors truncate block"
                     >
                       {siteConfig.contact.inquiryEmail}
                     </a>
@@ -508,34 +508,34 @@ export default function Footer() {
                     handleCopy(siteConfig.contact.inquiryEmail, "footer-direct-email")
                   }
                   aria-label="Copy direct email"
-                  className="p-1.5 rounded-md bg-white/10 hover:bg-white/20 text-white transition-colors shrink-0 cursor-pointer"
+                  className="p-1.5 rounded-md bg-white border border-slate-200 hover:bg-slate-100 text-slate-600 transition-colors shrink-0 cursor-pointer"
                   title="Copy"
                 >
                   {copiedId === "footer-direct-email" ? (
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <Check className="w-3.5 h-3.5 text-emerald-600" />
                   ) : (
-                    <Copy className="w-3.5 h-3.5 text-slate-300" />
+                    <Copy className="w-3.5 h-3.5 text-slate-500" />
                   )}
                 </button>
               </div>
 
               {/* Location */}
-              <div className="bg-[#16212c] border border-white/10 rounded-xl p-3 flex items-center justify-between gap-3 hover:border-white/25 transition-all">
+              <div className="bg-[#F8FAFC] border border-slate-200/80 rounded-xl p-3 flex items-center justify-between gap-3 hover:border-blue-400 hover:bg-blue-50/30 transition-all">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-8 h-8 rounded-lg bg-[#004275] border border-white/10 flex items-center justify-center shrink-0 text-white">
-                    <MapPin className="w-4 h-4 text-white" />
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 text-blue-600">
+                    <MapPin className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-500">
                       Location
                     </span>
-                    <span className="text-xs sm:text-sm font-semibold text-white truncate block">
+                    <span className="text-xs sm:text-sm font-semibold text-slate-900 truncate block">
                       Bangladesh (Global Remote Services)
                     </span>
                   </div>
                 </div>
 
-                <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-md shrink-0">
+                <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md shrink-0">
                   UTC+6
                 </span>
               </div>
@@ -548,21 +548,21 @@ export default function Footer() {
         {/* ========================================================= */}
         <div className="pt-2 pb-8">
           {/* Collapsible Trigger Bar */}
-          <div className="bg-[#16212c] border border-white/15 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="bg-[#F8FAFC] border border-slate-200/80 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-[#004275] border border-white/20 flex items-center justify-center text-white shadow-2xs shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm shrink-0">
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
               <div>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-sm font-bold text-white tracking-tight">
+                  <span className="text-sm font-bold text-slate-900 tracking-tight">
                     Ask AI About Me
                   </span>
-                  <span className="text-[10px] font-mono font-semibold text-sky-300 bg-sky-950/70 border border-sky-500/30 px-2 py-0.5 rounded-full">
+                  <span className="text-[10px] font-mono font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-full">
                     GPT • Claude • Gemini
                   </span>
                 </div>
-                <p className="text-xs text-[#CBD5E1] mt-0.5">
+                <p className="text-xs text-slate-600 mt-0.5">
                   Generate an objective summary of my technical skills, collaboration style, and reliability commitments.
                 </p>
               </div>
@@ -573,7 +573,7 @@ export default function Footer() {
               onClick={() => setIsAiDrawerOpen(!isAiDrawerOpen)}
               aria-expanded={isAiDrawerOpen}
               aria-controls="ask-ai-panel"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-semibold text-white transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white shrink-0 select-none"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-800 shadow-2xs transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 shrink-0 select-none"
             >
               <span>{isAiDrawerOpen ? "Hide AI Prompt" : "Open AI Prompt & Models"}</span>
               <ChevronDown
@@ -588,28 +588,28 @@ export default function Footer() {
           {isAiDrawerOpen && (
             <div
               id="ask-ai-panel"
-              className="mt-3 bg-[#16212c] border border-white/15 rounded-2xl p-5 sm:p-6 shadow-sm animate-in fade-in duration-200"
+              className="mt-3 bg-[#F8FAFC] border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-sm animate-in fade-in duration-200"
             >
               <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                 {/* Left: Prompt Preview */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
                       Ready-to-Use Summary Prompt
                     </span>
-                    <span className="text-[11px] font-mono text-slate-400">
+                    <span className="text-[11px] font-mono text-slate-500">
                       Objective 3-part inquiry
                     </span>
                   </div>
 
-                  <div className="bg-[#101820] border border-white/10 rounded-xl p-3.5 sm:p-4 text-xs font-mono text-slate-200 leading-relaxed select-all">
+                  <div className="bg-white border border-slate-200 rounded-xl p-3.5 sm:p-4 text-xs font-mono text-slate-800 leading-relaxed select-all">
                     {aiPromptText}
                   </div>
                 </div>
 
                 {/* Right: Actions (Copy + Direct Launch buttons) */}
                 <div className="lg:w-80 shrink-0 flex flex-col justify-between gap-3">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-300 block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-700 block">
                     Direct Launch or Copy
                   </span>
 
@@ -617,11 +617,11 @@ export default function Footer() {
                   <button
                     type="button"
                     onClick={handleCopyPrompt}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#004275] hover:bg-[#003157] border border-white/15 text-xs font-bold text-white shadow-xs transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 border border-blue-600 text-xs font-bold text-white shadow-xs transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                   >
                     {isPromptCopied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-400" />
+                        <Check className="w-3.5 h-3.5 text-white" />
                         <span>Prompt Copied to Clipboard!</span>
                       </>
                     ) : (
@@ -638,11 +638,11 @@ export default function Footer() {
                       href={`https://chatgpt.com/?q=${encodeURIComponent(aiPromptText)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex flex-col items-center justify-center p-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 hover:border-emerald-500/50 text-white transition-all text-center group"
+                      className="inline-flex flex-col items-center justify-center p-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 hover:border-emerald-500 text-slate-800 transition-all text-center group shadow-2xs"
                       title="Open with ChatGPT"
                     >
-                      <OpenAIIcon className="w-5 h-5 text-emerald-400 mb-1 group-hover:scale-110 transition-transform" />
-                      <span className="text-[11px] font-semibold">ChatGPT</span>
+                      <OpenAIIcon className="w-5 h-5 text-emerald-600 mb-1 group-hover:scale-110 transition-transform" />
+                      <span className="text-[11px] font-semibold text-slate-800">ChatGPT</span>
                     </a>
 
                     <a
@@ -650,11 +650,11 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={handleCopyPrompt}
-                      className="inline-flex flex-col items-center justify-center p-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 hover:border-amber-500/50 text-white transition-all text-center group"
+                      className="inline-flex flex-col items-center justify-center p-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 hover:border-amber-500 text-slate-800 transition-all text-center group shadow-2xs"
                       title="Open Claude (Prompt copied)"
                     >
-                      <ClaudeIcon className="w-5 h-5 text-amber-400 mb-1 group-hover:scale-110 transition-transform" />
-                      <span className="text-[11px] font-semibold">Claude</span>
+                      <ClaudeIcon className="w-5 h-5 text-amber-600 mb-1 group-hover:scale-110 transition-transform" />
+                      <span className="text-[11px] font-semibold text-slate-800">Claude</span>
                     </a>
 
                     <a
@@ -662,15 +662,15 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={handleCopyPrompt}
-                      className="inline-flex flex-col items-center justify-center p-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 hover:border-sky-500/50 text-white transition-all text-center group"
+                      className="inline-flex flex-col items-center justify-center p-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-500 text-slate-800 transition-all text-center group shadow-2xs"
                       title="Open Gemini (Prompt copied)"
                     >
-                      <GeminiIcon className="w-5 h-5 text-sky-400 mb-1 group-hover:scale-110 transition-transform" />
-                      <span className="text-[11px] font-semibold">Gemini</span>
+                      <GeminiIcon className="w-5 h-5 text-blue-600 mb-1 group-hover:scale-110 transition-transform" />
+                      <span className="text-[11px] font-semibold text-slate-800">Gemini</span>
                     </a>
                   </div>
 
-                  <p className="text-[10px] text-slate-400 leading-tight">
+                  <p className="text-[10px] text-slate-500 leading-tight">
                     Clicking Claude or Gemini copies the prompt automatically so you can paste and ask directly.
                   </p>
                 </div>
@@ -682,11 +682,11 @@ export default function Footer() {
         {/* ========================================================= */}
         {/* Bottom Legal & Metadata Bar                               */}
         {/* ========================================================= */}
-        <div className="pt-6 border-t border-white/[0.12] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#CBD5E1]">
-          <small className="text-xs text-[#CBD5E1]">
+        <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <small className="text-xs text-slate-500">
             &copy; {currentYear} {siteConfig.name}. All rights reserved.
           </small>
-          <small className="text-xs text-[#CBD5E1]">
+          <small className="text-xs text-slate-500">
             AI Engineer | Full-Stack Developer | Web &amp; Digital Solutions
           </small>
         </div>
