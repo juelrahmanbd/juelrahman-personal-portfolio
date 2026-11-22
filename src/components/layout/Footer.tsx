@@ -208,10 +208,12 @@ export default function Footer() {
   const quickLinks = [
     { name: "Home", href: "/#home", icon: Home },
     { name: "About", href: "/#about", icon: User },
-    { name: "Services", href: "/services", icon: Settings },
-    { name: "Skills", href: "/#skills", icon: Layers },
-    { name: "Portfolio", href: "/portfolio", icon: Folder },
-    { name: "Contact", href: "/contact", icon: Mail },
+    { name: "Expertise", href: "/#expertise", icon: Layers },
+    { name: "Projects", href: "/#projects", icon: Folder },
+    { name: "AI & Full-Stack", href: "/#ai-fullstack", icon: Settings },
+    { name: "WordPress & Divi", href: "/#wordpress", icon: Settings },
+    { name: "Experience", href: "/#experience", icon: Settings },
+    { name: "Contact", href: "/#contact", icon: Mail },
   ];
 
   const serviceItems = [

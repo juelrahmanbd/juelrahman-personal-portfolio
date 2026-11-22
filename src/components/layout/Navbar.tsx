@@ -142,7 +142,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={resolveHref(link.href)}
-                  className={`px-3.5 py-1.5 text-xs lg:text-sm font-semibold rounded-full transition-all duration-150 select-none ${
+                  className={`px-2.5 xl:px-3.5 py-1.5 text-xs xl:text-sm font-semibold rounded-full transition-all duration-150 select-none ${
                     isActive
                       ? "bg-[#004275] text-white shadow-2xs border border-white/20"
                       : "text-[#E2E8F0] hover:text-white hover:bg-white/10"

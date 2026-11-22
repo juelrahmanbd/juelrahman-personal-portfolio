@@ -58,7 +58,7 @@ export const siteConfig = {
   name: "Md. Juel Rahman",
   shortName: "Juel Rahman",
   initials: "JR",
-  role: "Full-Stack Web Developer | AI Engineer",
+  role: "AI Engineer | Full-Stack Developer",
   tagline:
     "I build high-performance websites, custom web applications, and intelligent AI-driven solutions that help businesses automate, grow, and scale effectively.",
   about: {
@@ -108,9 +108,11 @@ export const siteConfig = {
 export const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Skills", href: "#skills" },
-  { name: "Portfolio", href: "#portfolio" },
+  { name: "Expertise", href: "#expertise" },
+  { name: "Projects", href: "#projects" },
+  { name: "AI & Full-Stack", href: "#ai-fullstack" },
+  { name: "WordPress & Divi", href: "#wordpress" },
+  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
 

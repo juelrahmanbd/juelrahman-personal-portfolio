@@ -23,27 +23,28 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Md. Juel Rahman | Full-Stack Web Developer | AI Engineer",
+  title: "Md. Juel Rahman | AI Engineer & Full-Stack Developer",
   description:
-    "Explore the portfolio of Md. Juel Rahman, a Full-Stack Web Developer & AI Engineer specializing in high-performance websites, custom web applications, WordPress, Divi 5, SaaS, and AI automation.",
+    "Explore the portfolio of Md. Juel Rahman, an AI Engineer & Full-Stack Developer specializing in AI-powered applications, high-performance web systems, custom software, WordPress & Divi 5, and scalable web architecture.",
   authors: [{ name: "Md. Juel Rahman", url: "https://github.com/juelrahmanbd" }],
   creator: "Md. Juel Rahman",
   keywords: [
     "Md. Juel Rahman",
-    "Full-Stack Web Developer",
     "AI Engineer",
+    "Full-Stack Developer",
+    "Custom Software Development",
+    "Next.js Developer",
+    "React Developer",
     "WordPress Expert",
     "Divi 5",
-    "Custom Web Applications",
-    "SaaS Development",
-    "Next.js Developer",
     "AI Automation",
-    "Bangladesh",
+    "SaaS Applications",
+    "API Integration",
   ],
   openGraph: {
-    title: "Md. Juel Rahman | Full-Stack Web Developer | AI Engineer",
+    title: "Md. Juel Rahman | AI Engineer & Full-Stack Developer",
     description:
-      "Explore the portfolio of Md. Juel Rahman, specializing in high-performance websites, custom web applications, WordPress, SaaS, and AI-powered solutions.",
+      "Explore the portfolio of Md. Juel Rahman, specializing in AI-powered applications, high-performance web systems, custom software, WordPress, and scalable web architecture.",
     url: "https://juelrahman.me",
     siteName: "Md. Juel Rahman Portfolio",
     locale: "en_US",

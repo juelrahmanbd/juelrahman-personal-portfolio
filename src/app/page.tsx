@@ -4,14 +4,14 @@ import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import TechSlider from "@/components/sections/TechSlider";
-import EngineeringShowcase from "@/components/sections/EngineeringShowcase";
 import About from "@/components/sections/About";
-import Services from "@/components/sections/Services";
-import Skills from "@/components/sections/Skills";
-import Portfolio from "@/components/sections/Portfolio";
+import TechnicalExpertise from "@/components/sections/TechnicalExpertise";
+import FeaturedProjects from "@/components/sections/FeaturedProjects";
+import AiFullStack from "@/components/sections/AiFullStack";
+import WordPressDivi from "@/components/sections/WordPressDivi";
+import ExperienceTimeline from "@/components/sections/ExperienceTimeline";
 import Process from "@/components/sections/Process";
 import Testimonials from "@/components/sections/Testimonials";
-import CtaBanner from "@/components/sections/CtaBanner";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 
@@ -23,23 +23,37 @@ export default function HomePage() {
 
       {/* Main Page Sections */}
       <main className="flex-1 w-full">
-        {/* 1. Header & Single-Column Hero Section */}
+        {/* 1. Hero with Real Photo (Photo 1) */}
         <Hero />
 
-        {/* 2. Seamless Infinite Horizontal Tech Slider */}
+        {/* Seamless Horizontal Tech Marquee */}
         <TechSlider />
 
-        {/* 3. Two-Column Engineering Showcase Section */}
-        <EngineeringShowcase />
-
-        {/* 4. Complete Supporting Portfolio Sections */}
+        {/* 2. About Me with Real Photo (Photo 2) */}
         <About />
-        <Services />
-        <Skills />
-        <Portfolio />
+
+        {/* 3. Technical Expertise Bento Grid */}
+        <TechnicalExpertise />
+
+        {/* 4. Featured Projects Case Studies */}
+        <FeaturedProjects />
+
+        {/* 5. AI & Full-Stack Development Deep Dive */}
+        <AiFullStack />
+
+        {/* 6. WordPress & Divi Development Showcase */}
+        <WordPressDivi />
+
+        {/* 7. Experience & Milestones Timeline */}
+        <ExperienceTimeline />
+
+        {/* 8. Development Process / How I Work */}
         <Process />
+
+        {/* Client Testimonials Proof */}
         <Testimonials />
-        <CtaBanner />
+
+        {/* 8. Contact & Consultation with Real Photo (Photo 3) */}
         <Contact />
       </main>
 
