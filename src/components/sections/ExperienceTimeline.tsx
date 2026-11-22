@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { TechBadge } from "@/components/icons/TechIcons";
 import {
   Briefcase,
   CheckCircle2,
@@ -54,13 +55,13 @@ export default function ExperienceTimeline() {
       company: "Web Solutions Engineering",
       location: "Remote",
       description:
-        "Engineered bespoke WordPress themes, custom Divi layout templates, and high-performance WooCommerce stores. Mastered Google Core Web Vitals optimization, consistently delivering 95+ PageSpeed scores on complex enterprise CMS deployments.",
+        "Engineered bespoke WordPress themes, custom Divi layout templates, Elementor builds, and high-performance WooCommerce stores. Mastered Google Core Web Vitals optimization, custom plugin development, and technical SEO structure on enterprise CMS deployments.",
       highlights: [
-        "Pioneered modular Divi section template architecture without page builder bloat",
+        "Pioneered modular section template architecture without page builder bloat",
         "Optimized checkout funnels for international WooCommerce merchants",
-        "Achieved 100% Core Web Vitals passing rate across client portfolio sites",
+        "Engineered high-performance builds passing Google Core Web Vitals on client deployments",
       ],
-      skills: ["WordPress Core", "Divi 5", "WooCommerce", "PHP", "MySQL", "Core Web Vitals", "Technical SEO"],
+      skills: ["WordPress", "Divi 5", "Elementor", "WooCommerce", "PHP", "MySQL", "Technical SEO"],
     },
     {
       period: "2016 — 2018",
@@ -157,15 +158,15 @@ export default function ExperienceTimeline() {
                     ))}
                   </div>
 
-                  {/* Tech Tags */}
+                  {/* Tech Badges with Authentic Brand SVGs */}
                   <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[rgba(16,24,32,0.08)]">
                     {item.skills.map((skill, sIdx) => (
-                      <span
+                      <TechBadge
                         key={sIdx}
-                        className="px-2.5 py-1 rounded-lg bg-[#F5F8FB] border border-[rgba(16,24,32,0.1)] text-xs font-mono font-semibold text-[#101820]"
-                      >
-                        {skill}
-                      </span>
+                        name={skill}
+                        className="bg-[#F5F8FB] text-xs py-0.5 px-2"
+                        iconClassName="w-3 h-3"
+                      />
                     ))}
                   </div>
                 </div>

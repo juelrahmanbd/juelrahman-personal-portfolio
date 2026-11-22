@@ -1,17 +1,17 @@
 "use client";
 
 import React from "react";
+import { TechBadge } from "@/components/icons/TechIcons";
 import {
   Bot,
   Layers,
   Cpu,
-  Database,
+  Server,
   Globe,
   CheckCircle2,
 } from "lucide-react";
 
 export default function TechnicalExpertise() {
-
   return (
     <section
       id="expertise"
@@ -22,26 +22,26 @@ export default function TechnicalExpertise() {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(16,24,32,0.14)] text-xs font-semibold text-[#004275] shadow-xs mb-4">
             <Cpu className="w-3.5 h-3.5 text-[#004275]" />
-            <span className="tracking-wider uppercase">TECHNICAL EXPERTISE</span>
+            <span className="tracking-wider uppercase font-mono font-bold">TECHNICAL EXPERTISE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#101820] tracking-tight mb-3">
             Bespoke Stack for Scalable Systems &amp; Intelligent AI
           </h2>
           <p className="text-sm sm:text-base text-[#101820]/75 leading-relaxed">
-            A comprehensive, battle-tested technology architecture curated over 7–8 years of shipping software across modern web, cloud databases, and machine intelligence.
+            A comprehensive, battle-tested technology architecture curated over 7&ndash;8 years of shipping software across modern web, cloud databases, backend infrastructure, and machine intelligence.
           </p>
         </div>
 
         {/* Bento Grid Architecture */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 mb-12">
           {/* ========================================================= */}
-          {/* BENTO CARD 1: Autonomous AI & Task Automation (Large)     */}
+          {/* BENTO CARD 1: Autonomous AI & LLM Systems (Large 7 cols)   */}
           {/* ========================================================= */}
           <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-[rgba(16,24,32,0.14)] shadow-xs hover:border-[#004275]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-5 pb-4 border-b border-[rgba(16,24,32,0.08)]">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-[#004275]/10 border border-[#004275]/20 flex items-center justify-center text-[#004275] group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-xl bg-[#004275]/10 border border-[#004275]/20 flex items-center justify-center text-[#004275] group-hover:scale-105 transition-transform shadow-2xs">
                     <Bot className="w-6 h-6" />
                   </div>
                   <div>
@@ -59,7 +59,7 @@ export default function TechnicalExpertise() {
               </div>
 
               <p className="text-sm text-[#101820]/75 leading-relaxed mb-6">
-                Engineering production-grade AI systems that link foundation LLMs (OpenAI, Claude, Gemini) with business data, vector search, webhook listeners, and tool-calling execution pipelines with sub-second stream latency.
+                Engineering production-grade AI systems that link foundation LLMs (OpenAI, Anthropic Claude, Gemini) with live business data, pgvector semantic search, and tool-calling execution pipelines with sub-second stream latency.
               </p>
 
               {/* Architecture Points */}
@@ -83,24 +83,24 @@ export default function TechnicalExpertise() {
               </div>
             </div>
 
-            {/* Tech Tags */}
+            {/* Authentic Brand Badges */}
             <div className="flex flex-wrap gap-2 pt-4 border-t border-[rgba(16,24,32,0.08)]">
-              {["OpenAI API", "Claude 3.5 Sonnet", "LangChain / AI SDK", "Pinecone / pgvector", "Function Calling", "Webhooks", "JSON Schema"].map((t, idx) => (
-                <span key={idx} className="px-2.5 py-1 rounded-lg bg-[#F5F8FB] border border-[rgba(16,24,32,0.1)] text-xs font-mono font-semibold text-[#101820]">
-                  {t}
-                </span>
-              ))}
+              <TechBadge name="OpenAI" label="OpenAI API" />
+              <TechBadge name="Claude" label="Claude 3.5 Sonnet" />
+              <TechBadge name="Python" label="Python" />
+              <TechBadge name="Supabase" label="Supabase / pgvector" />
+              <TechBadge name="REST API" label="Tool Calling &amp; Webhooks" />
             </div>
           </div>
 
           {/* ========================================================= */}
-          {/* BENTO CARD 2: Full-Stack Web Engineering (Medium)         */}
+          {/* BENTO CARD 2: Full-Stack Next.js 15 (Medium 5 cols)       */}
           {/* ========================================================= */}
           <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-[rgba(16,24,32,0.14)] shadow-xs hover:border-[#004275]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-5 pb-4 border-b border-[rgba(16,24,32,0.08)]">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-700 group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-700 group-hover:scale-105 transition-transform shadow-2xs">
                     <Layers className="w-6 h-6" />
                   </div>
                   <div>
@@ -137,31 +137,31 @@ export default function TechnicalExpertise() {
               </div>
             </div>
 
+            {/* Authentic Brand Badges */}
             <div className="flex flex-wrap gap-2 pt-4 border-t border-[rgba(16,24,32,0.08)]">
-              {["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Zod", "Server Actions"].map((t, idx) => (
-                <span key={idx} className="px-2.5 py-1 rounded-lg bg-[#F5F8FB] border border-[rgba(16,24,32,0.1)] text-xs font-mono font-semibold text-[#101820]">
-                  {t}
-                </span>
-              ))}
+              <TechBadge name="Next.js" label="Next.js 15" />
+              <TechBadge name="React" label="React 19" />
+              <TechBadge name="TypeScript" label="TypeScript" />
+              <TechBadge name="Tailwind CSS" label="Tailwind CSS" />
             </div>
           </div>
 
           {/* ========================================================= */}
-          {/* BENTO CARD 3: Cloud, APIs & Database Systems (Medium)     */}
+          {/* BENTO CARD 3: Backend & Infrastructure (Medium 5 cols)    */}
           {/* ========================================================= */}
           <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-[rgba(16,24,32,0.14)] shadow-xs hover:border-[#004275]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-5 pb-4 border-b border-[rgba(16,24,32,0.08)]">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 group-hover:scale-105 transition-transform">
-                    <Database className="w-6 h-6" />
+                  <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 group-hover:scale-105 transition-transform shadow-2xs">
+                    <Server className="w-6 h-6" />
                   </div>
                   <div>
                     <span className="text-[11px] font-mono font-bold uppercase text-emerald-700 tracking-wider block">
-                      Data &amp; Cloud
+                      Backend &amp; Infrastructure
                     </span>
                     <h3 className="text-lg sm:text-xl font-bold text-[#101820]">
-                      APIs &amp; Database Scalability
+                      Cloud, APIs &amp; Databases
                     </h3>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default function TechnicalExpertise() {
               </div>
 
               <p className="text-sm text-[#101820]/75 leading-relaxed mb-6">
-                Relational and document storage design, connection pooling, automated schema migrations, authenticated endpoints, and sub-second response times.
+                Relational and document storage design, connection pooling, automated schema migrations, authenticated endpoints, and containerized deployments.
               </p>
 
               <div className="space-y-2 mb-6 text-xs text-[#101820]/80">
@@ -190,23 +190,25 @@ export default function TechnicalExpertise() {
               </div>
             </div>
 
+            {/* Authentic Brand Badges for Backend & Infrastructure */}
             <div className="flex flex-wrap gap-2 pt-4 border-t border-[rgba(16,24,32,0.08)]">
-              {["Supabase", "PostgreSQL", "MongoDB", "Node.js", "Docker", "Edge Functions"].map((t, idx) => (
-                <span key={idx} className="px-2.5 py-1 rounded-lg bg-[#F5F8FB] border border-[rgba(16,24,32,0.1)] text-xs font-mono font-semibold text-[#101820]">
-                  {t}
-                </span>
-              ))}
+              <TechBadge name="Supabase" label="Supabase" />
+              <TechBadge name="PostgreSQL" label="PostgreSQL" />
+              <TechBadge name="MongoDB" label="MongoDB" />
+              <TechBadge name="Node.js" label="Node.js" />
+              <TechBadge name="Docker" label="Docker" />
+              <TechBadge name="Edge Functions" label="Edge Functions" />
             </div>
           </div>
 
           {/* ========================================================= */}
-          {/* BENTO CARD 4: High-Performance WordPress & Divi 5 (Large)  */}
+          {/* BENTO CARD 4: WordPress Ecosystem (Large 7 cols)          */}
           {/* ========================================================= */}
           <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-[rgba(16,24,32,0.14)] shadow-xs hover:border-[#004275]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-5 pb-4 border-b border-[rgba(16,24,32,0.08)]">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-[#004275]/10 border border-[#004275]/20 flex items-center justify-center text-[#004275] group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-xl bg-[#004275]/10 border border-[#004275]/20 flex items-center justify-center text-[#004275] group-hover:scale-105 transition-transform shadow-2xs">
                     <Globe className="w-6 h-6" />
                   </div>
                   <div>
@@ -214,45 +216,48 @@ export default function TechnicalExpertise() {
                       CMS Architecture
                     </span>
                     <h3 className="text-lg sm:text-xl font-bold text-[#101820]">
-                      WordPress, Divi 5 &amp; Performance
+                      WordPress Ecosystem &amp; Performance
                     </h3>
                   </div>
                 </div>
                 <span className="text-xs font-mono font-semibold text-[#004275] bg-[#004275]/10 border border-[#004275]/20 px-2.5 py-1 rounded-full">
-                  95+ PageSpeed
+                  Full-Service Depth
                 </span>
               </div>
 
               <p className="text-sm text-[#101820]/75 leading-relaxed mb-6">
-                Specialized in the latest Divi 5 modular foundation, clean PHP 8.2+ object-oriented engineering, WooCommerce custom funnel optimization, and technical SEO structure without theme bloat.
+                End-to-end WordPress solutions across custom themes, custom plugins, Divi 5, Elementor, and WooCommerce &mdash; engineered with clean object-oriented PHP, Google Core Web Vitals optimization, and robust staging protocols.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6 text-xs text-[#101820]/80">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Divi 5 Modular Architecture (No Bloat)</span>
+                  <span>Custom Themes &amp; Custom Plugin Development</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Google Core Web Vitals 100% Passed</span>
+                  <span>Divi 5 &amp; Elementor Pro Frameworks</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>WooCommerce Custom Funnels &amp; Checkout</span>
+                  <span>WooCommerce Custom Funnels &amp; Checkouts</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Zero-Downtime Subdomain Staging Protocols</span>
+                  <span>Performance, Speed &amp; Technical SEO (Rank Math)</span>
                 </div>
               </div>
             </div>
 
+            {/* Authentic Brand Badges for WordPress */}
             <div className="flex flex-wrap gap-2 pt-4 border-t border-[rgba(16,24,32,0.08)]">
-              {["Divi 5", "WordPress Core", "PHP 8.2+", "WooCommerce", "Technical SEO", "Speed Optimization"].map((t, idx) => (
-                <span key={idx} className="px-2.5 py-1 rounded-lg bg-[#F5F8FB] border border-[rgba(16,24,32,0.1)] text-xs font-mono font-semibold text-[#101820]">
-                  {t}
-                </span>
-              ))}
+              <TechBadge name="WordPress" label="WordPress" />
+              <TechBadge name="Divi 5" label="Divi 5" />
+              <TechBadge name="Elementor" label="Elementor" />
+              <TechBadge name="WooCommerce" label="WooCommerce" />
+              <TechBadge name="PHP" label="PHP 8.2+" />
+              <TechBadge name="Rank Math" label="Rank Math" />
+              <TechBadge name="PageSpeed Insights" label="PageSpeed" />
             </div>
           </div>
         </div>

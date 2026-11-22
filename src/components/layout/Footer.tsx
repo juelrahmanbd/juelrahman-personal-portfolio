@@ -211,7 +211,7 @@ export default function Footer() {
     { name: "Expertise", href: "/#expertise", icon: Layers },
     { name: "Projects", href: "/#projects", icon: Folder },
     { name: "AI & Full-Stack", href: "/#ai-fullstack", icon: Settings },
-    { name: "WordPress & Divi", href: "/#wordpress", icon: Settings },
+    { name: "WordPress", href: "/#wordpress", icon: Settings },
     { name: "Experience", href: "/#experience", icon: Settings },
     { name: "Contact", href: "/#contact", icon: Mail },
   ];

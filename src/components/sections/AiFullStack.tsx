@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { TechIcon, TechBadge } from "@/components/icons/TechIcons";
 import {
   Bot,
   Layers,
@@ -39,17 +40,27 @@ export default function AiFullStack() {
           {/* ========================================================= */}
           <div className="bg-white rounded-3xl p-7 sm:p-9 border border-[rgba(16,24,32,0.14)] shadow-xs hover:border-[#004275]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-[rgba(16,24,32,0.08)]">
-                <div className="w-12 h-12 rounded-2xl bg-[#004275]/10 border border-[#004275]/20 flex items-center justify-center text-[#004275]">
-                  <Bot className="w-6 h-6" />
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-[rgba(16,24,32,0.08)]">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-2xl bg-[#004275]/10 border border-[#004275]/20 flex items-center justify-center text-[#004275] shadow-2xs">
+                    <Bot className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-mono font-bold uppercase text-[#004275] tracking-wider block">
+                      Architecture 01
+                    </span>
+                    <h3 className="text-xl font-bold text-[#101820]">
+                      Autonomous AI &amp; LLM Pipelines
+                    </h3>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-[11px] font-mono font-bold uppercase text-[#004275] tracking-wider block">
-                    Architecture 01
-                  </span>
-                  <h3 className="text-xl font-bold text-[#101820]">
-                    Autonomous AI &amp; LLM Pipelines
-                  </h3>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-[#F5F8FB] border border-[rgba(16,24,32,0.08)] flex items-center justify-center">
+                    <TechIcon name="OpenAI" className="w-4 h-4" />
+                  </div>
+                  <div className="w-8 h-8 rounded-lg bg-[#F5F8FB] border border-[rgba(16,24,32,0.08)] flex items-center justify-center">
+                    <TechIcon name="Claude" className="w-4 h-4" />
+                  </div>
                 </div>
               </div>
 
@@ -91,8 +102,12 @@ export default function AiFullStack() {
             </div>
 
             {/* Performance Metric Footer */}
-            <div className="pt-4 border-t border-[rgba(16,24,32,0.08)] flex items-center justify-between text-xs">
-              <span className="font-mono text-[#101820]/60">Streaming Latency:</span>
+            <div className="pt-4 border-t border-[rgba(16,24,32,0.08)] flex flex-wrap items-center justify-between gap-2 text-xs">
+              <div className="flex items-center gap-1.5">
+                <TechBadge name="OpenAI" label="OpenAI API" />
+                <TechBadge name="Claude" label="Claude 3.5" />
+                <TechBadge name="Python" label="Python" />
+              </div>
               <span className="font-mono font-bold text-[#004275] bg-[#004275]/10 px-2 py-0.5 rounded">
                 &lt; 350ms First Token
               </span>
@@ -104,17 +119,27 @@ export default function AiFullStack() {
           {/* ========================================================= */}
           <div className="bg-white rounded-3xl p-7 sm:p-9 border border-[rgba(16,24,32,0.14)] shadow-xs hover:border-[#004275]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-[rgba(16,24,32,0.08)]">
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-700">
-                  <Layers className="w-6 h-6" />
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-[rgba(16,24,32,0.08)]">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-700 shadow-2xs">
+                    <Layers className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-mono font-bold uppercase text-sky-700 tracking-wider block">
+                      Architecture 02
+                    </span>
+                    <h3 className="text-xl font-bold text-[#101820]">
+                      Full-Stack Next.js 15 &amp; APIs
+                    </h3>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-[11px] font-mono font-bold uppercase text-sky-700 tracking-wider block">
-                    Architecture 02
-                  </span>
-                  <h3 className="text-xl font-bold text-[#101820]">
-                    Full-Stack Next.js 15 &amp; APIs
-                  </h3>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-[#F5F8FB] border border-[rgba(16,24,32,0.08)] flex items-center justify-center">
+                    <TechIcon name="Next.js" className="w-4 h-4" />
+                  </div>
+                  <div className="w-8 h-8 rounded-lg bg-[#F5F8FB] border border-[rgba(16,24,32,0.08)] flex items-center justify-center">
+                    <TechIcon name="React" className="w-4 h-4" />
+                  </div>
                 </div>
               </div>
 
@@ -156,8 +181,12 @@ export default function AiFullStack() {
             </div>
 
             {/* Code Quality Metric Footer */}
-            <div className="pt-4 border-t border-[rgba(16,24,32,0.08)] flex items-center justify-between text-xs">
-              <span className="font-mono text-[#101820]/60">Type Safety Coverage:</span>
+            <div className="pt-4 border-t border-[rgba(16,24,32,0.08)] flex flex-wrap items-center justify-between gap-2 text-xs">
+              <div className="flex items-center gap-1.5">
+                <TechBadge name="PostgreSQL" label="PostgreSQL" />
+                <TechBadge name="Docker" label="Docker" />
+                <TechBadge name="TypeScript" label="TypeScript" />
+              </div>
               <span className="font-mono font-bold text-sky-800 bg-sky-50 px-2 py-0.5 rounded">
                 100% Strict TypeScript
               </span>

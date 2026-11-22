@@ -41,7 +41,7 @@ export default function HomePage() {
         {/* 5. AI & Full-Stack Development Deep Dive */}
         <AiFullStack />
 
-        {/* 6. WordPress & Divi Development Showcase */}
+        {/* 6. WordPress Development, Architecture & Performance Showcase */}
         <WordPressDivi />
 
         {/* 7. Experience & Milestones Timeline */}

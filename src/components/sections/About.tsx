@@ -120,10 +120,10 @@ export default function About() {
             {/* Narrative Paragraphs */}
             <div className="space-y-4 text-base text-[#101820]/80 leading-relaxed mb-8">
               <p>
-                I&apos;m <strong>Md. Juel Rahman</strong>, a tech professional with <strong>7–8 years of practical industry experience</strong> across modern web engineering and intelligent digital systems. I work at the intersection of full-stack engineering and artificial intelligence to build robust, business-critical applications, custom WordPress &amp; Divi platforms, API architectures, and autonomous workflow automation.
+                I&apos;m <strong>Md. Juel Rahman</strong>, a tech professional with <strong>7–8 years of practical industry experience</strong> across modern web engineering and intelligent digital systems. I work at the intersection of full-stack engineering and artificial intelligence to build robust, business-critical applications, end-to-end WordPress platforms, API architectures, and autonomous workflow automation.
               </p>
               <p>
-                My methodology is rooted in delivering practical, scalable, and intelligent software that solves tangible problems for businesses. Whether architecting a Next.js SaaS backend, fine-tuning an LLM tool-calling agent, or optimizing a complex enterprise WordPress WooCommerce store for 95+ PageSpeed scores, I align deep technical rigor with commercial goals.
+                My methodology is rooted in delivering practical, scalable, and intelligent software that solves tangible problems for businesses. Whether architecting a Next.js SaaS backend, fine-tuning an LLM tool-calling agent, or optimizing an enterprise WordPress WooCommerce store for maximum performance and Google Core Web Vitals, I align deep technical rigor with commercial goals.
               </p>
             </div>
 
@@ -135,7 +135,7 @@ export default function About() {
               </div>
               <div>
                 <span className="text-xs font-semibold text-[#101820]/60 block mb-0.5">CMS &amp; Speed Stacks</span>
-                <span className="text-sm font-bold text-[#101820]">WordPress &amp; Divi 5</span>
+                <span className="text-sm font-bold text-[#101820]">WordPress Ecosystem</span>
               </div>
               <div>
                 <span className="text-xs font-semibold text-[#101820]/60 block mb-0.5">Communication</span>

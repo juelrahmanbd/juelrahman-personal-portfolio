@@ -3,12 +3,12 @@
 import React from "react";
 import Image from "next/image";
 import { siteConfig } from "@/data/portfolioData";
+import { TechIcon } from "@/components/icons/TechIcons";
 import {
   Layers,
   ArrowRight,
   ShieldCheck,
   Bot,
-  Zap,
   ExternalLink,
 } from "lucide-react";
 
@@ -64,7 +64,7 @@ export default function Hero() {
 
             {/* Value Statement */}
             <p className="text-base sm:text-lg text-[#101820]/80 leading-relaxed max-w-2xl mb-8">
-              7–8 years of hands-on engineering experience designing modern full-stack web applications, autonomous LLM agents, scalable APIs, and bespoke WordPress &amp; Divi 5 architectures that deliver measurable business growth.
+              7–8 years of hands-on engineering experience designing modern full-stack web applications, autonomous LLM agents, scalable APIs, and comprehensive WordPress solutions across themes, plugins, Divi 5, and WooCommerce.
             </p>
 
             {/* Action Buttons */}
@@ -184,44 +184,91 @@ export default function Hero() {
 
         {/* 4 Foundation Capability Banners Below Hero */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
-          <div className="bg-white rounded-2xl p-5 border border-[rgba(16,24,32,0.12)] shadow-xs hover:border-[#004275]/50 transition-all duration-200">
-            <div className="w-10 h-10 rounded-xl bg-[#F5F8FB] border border-[rgba(16,24,32,0.06)] flex items-center justify-center text-[#004275] mb-3">
-              <Bot className="w-5 h-5" />
+          <div className="bg-white rounded-2xl p-5 border border-[rgba(16,24,32,0.12)] shadow-xs hover:border-[#004275]/50 transition-all duration-200 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-9 h-9 rounded-xl bg-[#F5F8FB] border border-[rgba(16,24,32,0.08)] flex items-center justify-center text-[#004275]">
+                  <Bot className="w-5 h-5" />
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <TechIcon name="OpenAI" className="w-4 h-4" />
+                  <TechIcon name="Claude" className="w-4 h-4" />
+                </div>
+              </div>
+              <h3 className="font-bold text-[#101820] text-sm mb-1">Autonomous AI &amp; LLMs</h3>
+              <p className="text-xs text-[#101820]/70 leading-relaxed">
+                OpenAI &amp; Claude streaming, function calling, RAG pipelines, and automated business workflows.
+              </p>
             </div>
-            <h3 className="font-bold text-[#101820] text-sm mb-1">Autonomous AI &amp; LLMs</h3>
-            <p className="text-xs text-[#101820]/70 leading-relaxed">
-              OpenAI &amp; Claude streaming, function calling, RAG pipelines, and automated business workflows.
-            </p>
+            <div className="mt-3 pt-2.5 border-t border-[rgba(16,24,32,0.06)] flex items-center justify-between text-[11px] font-mono text-[#004275]">
+              <span>RAG &bull; Embeddings</span>
+            </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-5 border border-[rgba(16,24,32,0.12)] shadow-xs hover:border-[#004275]/50 transition-all duration-200">
-            <div className="w-10 h-10 rounded-xl bg-[#F5F8FB] border border-[rgba(16,24,32,0.06)] flex items-center justify-center text-[#004275] mb-3">
-              <Layers className="w-5 h-5" />
+          <div className="bg-white rounded-2xl p-5 border border-[rgba(16,24,32,0.12)] shadow-xs hover:border-[#004275]/50 transition-all duration-200 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-9 h-9 rounded-xl bg-[#F5F8FB] border border-[rgba(16,24,32,0.08)] flex items-center justify-center text-[#004275]">
+                  <Layers className="w-5 h-5" />
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <TechIcon name="Next.js" className="w-4 h-4" />
+                  <TechIcon name="React" className="w-4 h-4" />
+                  <TechIcon name="TypeScript" className="w-4 h-4" />
+                </div>
+              </div>
+              <h3 className="font-bold text-[#101820] text-sm mb-1">Full-Stack Next.js 15</h3>
+              <p className="text-xs text-[#101820]/70 leading-relaxed">
+                React 19 Server Components, TypeScript strict mode, Zod validation, and high-throughput APIs.
+              </p>
             </div>
-            <h3 className="font-bold text-[#101820] text-sm mb-1">Full-Stack Next.js 15</h3>
-            <p className="text-xs text-[#101820]/70 leading-relaxed">
-              React 19 Server Components, TypeScript strict mode, Zod validation, and high-throughput APIs.
-            </p>
+            <div className="mt-3 pt-2.5 border-t border-[rgba(16,24,32,0.06)] flex items-center justify-between text-[11px] font-mono text-[#004275]">
+              <span>RSC &bull; App Router</span>
+            </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-5 border border-[rgba(16,24,32,0.12)] shadow-xs hover:border-[#004275]/50 transition-all duration-200">
-            <div className="w-10 h-10 rounded-xl bg-[#F5F8FB] border border-[rgba(16,24,32,0.06)] flex items-center justify-center text-[#004275] mb-3">
-              <Zap className="w-5 h-5" />
+          <div className="bg-white rounded-2xl p-5 border border-[rgba(16,24,32,0.12)] shadow-xs hover:border-[#004275]/50 transition-all duration-200 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-9 h-9 rounded-xl bg-[#F5F8FB] border border-[rgba(16,24,32,0.08)] flex items-center justify-center text-[#004275]">
+                  <TechIcon name="WordPress" className="w-5 h-5" />
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <TechIcon name="WooCommerce" className="w-4 h-4" />
+                  <TechIcon name="Divi 5" className="w-4 h-4" />
+                  <TechIcon name="Elementor" className="w-4 h-4" />
+                </div>
+              </div>
+              <h3 className="font-bold text-[#101820] text-sm mb-1">WordPress Ecosystem</h3>
+              <p className="text-xs text-[#101820]/70 leading-relaxed">
+                Custom themes, plugins, Divi 5, Elementor, WooCommerce funnels, and Google Core Web Vitals optimization.
+              </p>
             </div>
-            <h3 className="font-bold text-[#101820] text-sm mb-1">WordPress &amp; Divi 5</h3>
-            <p className="text-xs text-[#101820]/70 leading-relaxed">
-              Modular Divi 5 templates, custom PHP 8.2 plugins, WooCommerce funnels, and 95+ PageSpeed.
-            </p>
+            <div className="mt-3 pt-2.5 border-t border-[rgba(16,24,32,0.06)] flex items-center justify-between text-[11px] font-mono text-[#004275]">
+              <span>Themes &bull; Plugins &bull; WooCommerce</span>
+            </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-5 border border-[rgba(16,24,32,0.12)] shadow-xs hover:border-[#004275]/50 transition-all duration-200">
-            <div className="w-10 h-10 rounded-xl bg-[#F5F8FB] border border-[rgba(16,24,32,0.06)] flex items-center justify-center text-[#004275] mb-3">
-              <ShieldCheck className="w-5 h-5" />
+          <div className="bg-white rounded-2xl p-5 border border-[rgba(16,24,32,0.12)] shadow-xs hover:border-[#004275]/50 transition-all duration-200 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-9 h-9 rounded-xl bg-[#F5F8FB] border border-[rgba(16,24,32,0.08)] flex items-center justify-center text-[#004275]">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <TechIcon name="Docker" className="w-4 h-4" />
+                  <TechIcon name="PostgreSQL" className="w-4 h-4" />
+                  <TechIcon name="Supabase" className="w-4 h-4" />
+                </div>
+              </div>
+              <h3 className="font-bold text-[#101820] text-sm mb-1">Backend &amp; Infrastructure</h3>
+              <p className="text-xs text-[#101820]/70 leading-relaxed">
+                Supabase, PostgreSQL, Docker containers, Redis, and isolated subdomain staging protocols.
+              </p>
             </div>
-            <h3 className="font-bold text-[#101820] text-sm mb-1">Enterprise Staging</h3>
-            <p className="text-xs text-[#101820]/70 leading-relaxed">
-              Isolated staging subdomains, zero-downtime database sync, and robust production protocols.
-            </p>
+            <div className="mt-3 pt-2.5 border-t border-[rgba(16,24,32,0.06)] flex items-center justify-between text-[11px] font-mono text-[#004275]">
+              <span>Docker &bull; PostgreSQL &bull; Edge</span>
+            </div>
           </div>
         </div>
       </div>

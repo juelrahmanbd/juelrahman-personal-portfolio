@@ -3,20 +3,21 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { portfolioProjects } from "@/data/projectsData";
+import { TechBadge } from "@/components/icons/TechIcons";
 import {
   ExternalLink,
   CheckCircle2,
   FolderGit2,
 } from "lucide-react";
 
-type FilterCategory = "all" | "WordPress & Divi 5" | "Business & Agency" | "Booking, eCommerce & Healthcare";
+type FilterCategory = "all" | "WordPress" | "Business & Agency" | "Booking, eCommerce & Healthcare";
 
 export default function FeaturedProjects() {
   const [activeCategory, setActiveCategory] = useState<FilterCategory>("all");
 
   const categories: { label: string; value: FilterCategory }[] = [
     { label: "All Projects", value: "all" },
-    { label: "WordPress & Divi 5", value: "WordPress & Divi 5" },
+    { label: "WordPress Ecosystem", value: "WordPress" },
     { label: "Business & Agency", value: "Business & Agency" },
     { label: "Booking, eCommerce & Healthcare", value: "Booking, eCommerce & Healthcare" },
   ];
@@ -24,7 +25,11 @@ export default function FeaturedProjects() {
   const filteredProjects =
     activeCategory === "all"
       ? portfolioProjects
-      : portfolioProjects.filter((p) => p.category === activeCategory);
+      : portfolioProjects.filter((p) =>
+          activeCategory === "WordPress"
+            ? p.category.includes("WordPress")
+            : p.category === activeCategory
+        );
 
   return (
     <section
@@ -129,15 +134,15 @@ export default function FeaturedProjects() {
                   </div>
                 </div>
 
-                {/* Tech Badges */}
+                {/* Tech Badges with Authentic Brand SVGs */}
                 <div className="pt-4 border-t border-[rgba(16,24,32,0.08)] flex flex-wrap gap-1.5">
                   {project.techStack.slice(0, 4).map((tech, tIdx) => (
-                    <span
+                    <TechBadge
                       key={tIdx}
-                      className="px-2 py-0.5 rounded-md bg-white border border-[rgba(16,24,32,0.1)] text-[11px] font-mono font-semibold text-[#101820]"
-                    >
-                      {tech}
-                    </span>
+                      name={tech}
+                      className="text-[11px] py-0.5 px-2 bg-white"
+                      iconClassName="w-3 h-3"
+                    />
                   ))}
                   {project.techStack.length > 4 && (
                     <span className="px-1.5 py-0.5 text-[10px] font-mono text-[#101820]/60 self-center">
